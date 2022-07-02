@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method">
+		<instance>
+			<role name="Creator" element="retrofit2.Call" />
+			<role name="FactoryMethod()" element="retrofit2.Call::clone():retrofit2.Call" />
+		</instance>
+		<instance>
+			<role name="Creator" element="retrofit2.CallAdapter$Factory" />
+			<role name="FactoryMethod()" element="retrofit2.CallAdapter$Factory::get(java.lang.reflect.Type, java.lang.annotation.Annotation[], retrofit2.Retrofit):retrofit2.CallAdapter" />
+		</instance>
+	</pattern>
+	<pattern name="Prototype" />
+	<pattern name="Singleton">
+		<instance>
+			<role name="Singleton" element="retrofit2.BuiltInConverters$BufferingResponseBodyConverter" />
+			<role name="uniqueInstance" element="retrofit2.BuiltInConverters$BufferingResponseBodyConverter::INSTANCE:retrofit2.BuiltInConverters$BufferingResponseBodyConverter" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="retrofit2.BuiltInConverters$RequestBodyConverter" />
+			<role name="uniqueInstance" element="retrofit2.BuiltInConverters$RequestBodyConverter::INSTANCE:retrofit2.BuiltInConverters$RequestBodyConverter" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="retrofit2.BuiltInConverters$StreamingResponseBodyConverter" />
+			<role name="uniqueInstance" element="retrofit2.BuiltInConverters$StreamingResponseBodyConverter::INSTANCE:retrofit2.BuiltInConverters$StreamingResponseBodyConverter" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="retrofit2.BuiltInConverters$ToStringConverter" />
+			<role name="uniqueInstance" element="retrofit2.BuiltInConverters$ToStringConverter::INSTANCE:retrofit2.BuiltInConverters$ToStringConverter" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="retrofit2.BuiltInConverters$UnitResponseBodyConverter" />
+			<role name="uniqueInstance" element="retrofit2.BuiltInConverters$UnitResponseBodyConverter::INSTANCE:retrofit2.BuiltInConverters$UnitResponseBodyConverter" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="retrofit2.BuiltInConverters$VoidResponseBodyConverter" />
+			<role name="uniqueInstance" element="retrofit2.BuiltInConverters$VoidResponseBodyConverter::INSTANCE:retrofit2.BuiltInConverters$VoidResponseBodyConverter" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="retrofit2.ParameterHandler$RawPart" />
+			<role name="uniqueInstance" element="retrofit2.ParameterHandler$RawPart::INSTANCE:retrofit2.ParameterHandler$RawPart" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="retrofit2.Platform" />
+			<role name="uniqueInstance" element="retrofit2.Platform::PLATFORM:retrofit2.Platform" />
+		</instance>
+	</pattern>
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="retrofit2.Response" />
+			<role name="Adapter" element="retrofit2.mock.Calls$FakeCall" />
+			<role name="adaptee" element="retrofit2.mock.Calls$FakeCall::response:retrofit2.Response" />
+			<role name="Request()" element="retrofit2.mock.Calls$FakeCall::request():okhttp3.Request" />
+		</instance>
+		<instance>
+			<role name="Adapter" element="retrofit2.ParameterHandler$Body" />
+			<role name="Adaptee" element="retrofit2.Converter" />
+			<role name="adaptee" element="retrofit2.ParameterHandler$Body::converter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$Body::apply(retrofit2.RequestBuilder, T):void" />
+		</instance>
+		<instance>
+			<role name="Adapter" element="retrofit2.ParameterHandler$Field" />
+			<role name="Adaptee" element="retrofit2.Converter" />
+			<role name="adaptee" element="retrofit2.ParameterHandler$Field::valueConverter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$Field::apply(retrofit2.RequestBuilder, T):void" />
+		</instance>
+		<instance>
+			<role name="Adapter" element="retrofit2.ParameterHandler$Header" />
+			<role name="Adaptee" element="retrofit2.Converter" />
+			<role name="adaptee" element="retrofit2.ParameterHandler$Header::valueConverter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$Header::apply(retrofit2.RequestBuilder, T):void" />
+		</instance>
+		<instance>
+			<role name="Adapter" element="retrofit2.ParameterHandler$Part" />
+			<role name="Adaptee" element="retrofit2.Converter" />
+			<role name="adaptee" element="retrofit2.ParameterHandler$Part::converter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$Part::apply(retrofit2.RequestBuilder, T):void" />
+		</instance>
+		<instance>
+			<role name="Adapter" element="retrofit2.ParameterHandler$Path" />
+			<role name="Adaptee" element="retrofit2.Converter" />
+			<role name="adaptee" element="retrofit2.ParameterHandler$Path::valueConverter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$Path::apply(retrofit2.RequestBuilder, T):void" />
+		</instance>
+		<instance>
+			<role name="Adapter" element="retrofit2.ParameterHandler$Query" />
+			<role name="Adaptee" element="retrofit2.Converter" />
+			<role name="adaptee" element="retrofit2.ParameterHandler$Query::valueConverter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$Query::apply(retrofit2.RequestBuilder, T):void" />
+		</instance>
+		<instance>
+			<role name="Adapter" element="retrofit2.ParameterHandler$QueryName" />
+			<role name="Adaptee" element="retrofit2.Converter" />
+			<role name="adaptee" element="retrofit2.ParameterHandler$QueryName::nameConverter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$QueryName::apply(retrofit2.RequestBuilder, T):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="retrofit2.mock.BehaviorDelegate" />
+			<role name="Adapter" element="retrofit2.mock.BehaviorDelegateKotlinTest$before$1" />
+			<role name="adaptee" element="retrofit2.mock.BehaviorDelegateKotlinTest$before$1::$delegate:retrofit2.mock.BehaviorDelegate" />
+			<role name="Request()" element="retrofit2.mock.BehaviorDelegateKotlinTest$before$1::body(kotlin.coroutines.Continuation):java.lang.Object" />
+			<role name="Request()" element="retrofit2.mock.BehaviorDelegateKotlinTest$before$1::failure(kotlin.coroutines.Continuation):java.lang.Object" />
+			<role name="Request()" element="retrofit2.mock.BehaviorDelegateKotlinTest$before$1::response(kotlin.coroutines.Continuation):java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="retrofit2.CallAdapter" />
+			<role name="Adapter" element="retrofit2.HttpServiceMethod$CallAdapted" />
+			<role name="adaptee" element="retrofit2.HttpServiceMethod$CallAdapted::callAdapter:retrofit2.CallAdapter" />
+			<role name="Request()" element="retrofit2.HttpServiceMethod$CallAdapted::adapt(retrofit2.Call, java.lang.Object[]):java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="retrofit2.CallAdapter" />
+			<role name="Adapter" element="retrofit2.HttpServiceMethod$SuspendForBody" />
+			<role name="adaptee" element="retrofit2.HttpServiceMethod$SuspendForBody::callAdapter:retrofit2.CallAdapter" />
+			<role name="Request()" element="retrofit2.HttpServiceMethod$SuspendForBody::adapt(retrofit2.Call, java.lang.Object[]):java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="retrofit2.CallAdapter" />
+			<role name="Adapter" element="retrofit2.HttpServiceMethod$SuspendForResponse" />
+			<role name="adaptee" element="retrofit2.HttpServiceMethod$SuspendForResponse::callAdapter:retrofit2.CallAdapter" />
+			<role name="Request()" element="retrofit2.HttpServiceMethod$SuspendForResponse::adapt(retrofit2.Call, java.lang.Object[]):java.lang.Object" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator">
+		<instance>
+			<role name="Component" element="retrofit2.Call" />
+			<role name="Decorator" element="retrofit2.DefaultCallAdapterFactory$ExecutorCallbackCall" />
+			<role name="component" element="retrofit2.DefaultCallAdapterFactory$ExecutorCallbackCall::delegate:retrofit2.Call" />
+			<role name="Operation()" element="retrofit2.DefaultCallAdapterFactory$ExecutorCallbackCall::enqueue(retrofit2.Callback):void" />
+			<role name="Operation()" element="retrofit2.DefaultCallAdapterFactory$ExecutorCallbackCall::isExecuted():boolean" />
+			<role name="Operation()" element="retrofit2.DefaultCallAdapterFactory$ExecutorCallbackCall::execute():retrofit2.Response" />
+			<role name="Operation()" element="retrofit2.DefaultCallAdapterFactory$ExecutorCallbackCall::cancel():void" />
+			<role name="Operation()" element="retrofit2.DefaultCallAdapterFactory$ExecutorCallbackCall::isCanceled():boolean" />
+			<role name="Operation()" element="retrofit2.DefaultCallAdapterFactory$ExecutorCallbackCall::clone():retrofit2.Call" />
+			<role name="Operation()" element="retrofit2.DefaultCallAdapterFactory$ExecutorCallbackCall::request():okhttp3.Request" />
+			<role name="Operation()" element="retrofit2.DefaultCallAdapterFactory$ExecutorCallbackCall::timeout():okio.Timeout" />
+		</instance>
+		<instance>
+			<role name="Component" element="retrofit2.Call" />
+			<role name="Decorator" element="retrofit2.mock.BehaviorCall" />
+			<role name="component" element="retrofit2.mock.BehaviorCall::delegate:retrofit2.Call" />
+			<role name="Operation()" element="retrofit2.mock.BehaviorCall::clone():retrofit2.Call" />
+			<role name="Operation()" element="retrofit2.mock.BehaviorCall::request():okhttp3.Request" />
+			<role name="Operation()" element="retrofit2.mock.BehaviorCall::timeout():okio.Timeout" />
+		</instance>
+	</pattern>
+	<pattern name="Observer" />
+	<pattern name="State">
+		<instance>
+			<role name="State" element="retrofit2.ParameterHandler" />
+			<role name="Context" element="retrofit2.RequestFactory" />
+			<role name="state" element="retrofit2.RequestFactory::parameterHandlers:retrofit2.ParameterHandler[]" />
+			<role name="Request()" element="retrofit2.RequestFactory::create(java.lang.Object[]):okhttp3.Request" />
+		</instance>
+		<instance>
+			<role name="State" element="retrofit2.Call" />
+			<role name="Context" element="retrofit2.CompletableFutureCallAdapterFactory$CallCancelCompletableFuture" />
+			<role name="state" element="retrofit2.CompletableFutureCallAdapterFactory$CallCancelCompletableFuture::call:retrofit2.Call" />
+			<role name="Request()" element="retrofit2.CompletableFutureCallAdapterFactory$CallCancelCompletableFuture::cancel(boolean):boolean" />
+		</instance>
+		<instance>
+			<role name="State" element="retrofit2.Call" />
+			<role name="Context" element="retrofit2.KotlinExtensions$await$2$1" />
+			<role name="state" element="retrofit2.KotlinExtensions$await$2$1::$this_await:retrofit2.Call" />
+			<role name="Request()" element="retrofit2.KotlinExtensions$await$2$1::invoke(java.lang.Throwable):void" />
+		</instance>
+		<instance>
+			<role name="State" element="retrofit2.Call" />
+			<role name="Context" element="retrofit2.KotlinExtensions$await$4$1" />
+			<role name="state" element="retrofit2.KotlinExtensions$await$4$1::$this_await:retrofit2.Call" />
+			<role name="Request()" element="retrofit2.KotlinExtensions$await$4$1::invoke(java.lang.Throwable):void" />
+		</instance>
+		<instance>
+			<role name="State" element="retrofit2.Call" />
+			<role name="Context" element="retrofit2.KotlinExtensions$awaitResponse$2$1" />
+			<role name="state" element="retrofit2.KotlinExtensions$awaitResponse$2$1::$this_awaitResponse:retrofit2.Call" />
+			<role name="Request()" element="retrofit2.KotlinExtensions$awaitResponse$2$1::invoke(java.lang.Throwable):void" />
+		</instance>
+		<instance>
+			<role name="State" element="retrofit2.Converter" />
+			<role name="Context" element="retrofit2.ParameterHandler$Body" />
+			<role name="state" element="retrofit2.ParameterHandler$Body::converter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$Body::apply(retrofit2.RequestBuilder, T):void" />
+		</instance>
+		<instance>
+			<role name="State" element="retrofit2.Converter" />
+			<role name="Context" element="retrofit2.ParameterHandler$Field" />
+			<role name="state" element="retrofit2.ParameterHandler$Field::valueConverter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$Field::apply(retrofit2.RequestBuilder, T):void" />
+		</instance>
+		<instance>
+			<role name="State" element="retrofit2.Converter" />
+			<role name="Context" element="retrofit2.ParameterHandler$FieldMap" />
+			<role name="state" element="retrofit2.ParameterHandler$FieldMap::valueConverter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$FieldMap::apply(retrofit2.RequestBuilder, java.util.Map):void" />
+		</instance>
+		<instance>
+			<role name="State" element="retrofit2.Converter" />
+			<role name="Context" element="retrofit2.ParameterHandler$Header" />
+			<role name="state" element="retrofit2.ParameterHandler$Header::valueConverter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$Header::apply(retrofit2.RequestBuilder, T):void" />
+		</instance>
+		<instance>
+			<role name="State" element="retrofit2.Converter" />
+			<role name="Context" element="retrofit2.ParameterHandler$HeaderMap" />
+			<role name="state" element="retrofit2.ParameterHandler$HeaderMap::valueConverter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$HeaderMap::apply(retrofit2.RequestBuilder, java.util.Map):void" />
+		</instance>
+		<instance>
+			<role name="State" element="retrofit2.Converter" />
+			<role name="Context" element="retrofit2.ParameterHandler$Part" />
+			<role name="state" element="retrofit2.ParameterHandler$Part::converter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$Part::apply(retrofit2.RequestBuilder, T):void" />
+		</instance>
+		<instance>
+			<role name="State" element="retrofit2.Converter" />
+			<role name="Context" element="retrofit2.ParameterHandler$PartMap" />
+			<role name="state" element="retrofit2.ParameterHandler$PartMap::valueConverter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$PartMap::apply(retrofit2.RequestBuilder, java.util.Map):void" />
+		</instance>
+		<instance>
+			<role name="State" element="retrofit2.Converter" />
+			<role name="Context" element="retrofit2.ParameterHandler$Path" />
+			<role name="state" element="retrofit2.ParameterHandler$Path::valueConverter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$Path::apply(retrofit2.RequestBuilder, T):void" />
+		</instance>
+		<instance>
+			<role name="State" element="retrofit2.Converter" />
+			<role name="Context" element="retrofit2.ParameterHandler$Query" />
+			<role name="state" element="retrofit2.ParameterHandler$Query::valueConverter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$Query::apply(retrofit2.RequestBuilder, T):void" />
+		</instance>
+		<instance>
+			<role name="State" element="retrofit2.Converter" />
+			<role name="Context" element="retrofit2.ParameterHandler$QueryMap" />
+			<role name="state" element="retrofit2.ParameterHandler$QueryMap::valueConverter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$QueryMap::apply(retrofit2.RequestBuilder, java.util.Map):void" />
+		</instance>
+		<instance>
+			<role name="State" element="retrofit2.Converter" />
+			<role name="Context" element="retrofit2.ParameterHandler$QueryName" />
+			<role name="state" element="retrofit2.ParameterHandler$QueryName::nameConverter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.ParameterHandler$QueryName::apply(retrofit2.RequestBuilder, T):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="retrofit2.HttpServiceMethod$CallAdapted" />
+			<role name="State" element="retrofit2.CallAdapter" />
+			<role name="state" element="retrofit2.HttpServiceMethod$CallAdapted::callAdapter:retrofit2.CallAdapter" />
+			<role name="Request()" element="retrofit2.HttpServiceMethod$CallAdapted::adapt(retrofit2.Call, java.lang.Object[]):java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="Context" element="retrofit2.HttpServiceMethod$SuspendForBody" />
+			<role name="State" element="retrofit2.CallAdapter" />
+			<role name="state" element="retrofit2.HttpServiceMethod$SuspendForBody::callAdapter:retrofit2.CallAdapter" />
+			<role name="Request()" element="retrofit2.HttpServiceMethod$SuspendForBody::adapt(retrofit2.Call, java.lang.Object[]):java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="Context" element="retrofit2.HttpServiceMethod$SuspendForResponse" />
+			<role name="State" element="retrofit2.CallAdapter" />
+			<role name="state" element="retrofit2.HttpServiceMethod$SuspendForResponse::callAdapter:retrofit2.CallAdapter" />
+			<role name="Request()" element="retrofit2.HttpServiceMethod$SuspendForResponse::adapt(retrofit2.Call, java.lang.Object[]):java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="Context" element="retrofit2.OkHttpCall" />
+			<role name="State" element="retrofit2.Converter" />
+			<role name="state" element="retrofit2.OkHttpCall::responseConverter:retrofit2.Converter" />
+			<role name="Request()" element="retrofit2.OkHttpCall::parseResponse(okhttp3.Response):retrofit2.Response" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method">
+		<instance>
+			<role name="AbstractClass" element="retrofit2.HttpServiceMethod" />
+			<role name="TemplateMethod()" element="retrofit2.HttpServiceMethod::invoke(java.lang.Object[]):java.lang.Object" />
+		</instance>
+	</pattern>
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

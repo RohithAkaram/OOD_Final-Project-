@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method" />
+	<pattern name="Prototype" />
+	<pattern name="Singleton">
+		<instance>
+			<role name="Singleton" element="redis.clients.jedis.json.Path" />
+			<role name="uniqueInstance" element="redis.clients.jedis.json.Path::ROOT_PATH:redis.clients.jedis.json.Path" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="redis.clients.jedis.json.Path2" />
+			<role name="uniqueInstance" element="redis.clients.jedis.json.Path2::ROOT_PATH:redis.clients.jedis.json.Path2" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="redis.clients.jedis.search.aggr.Limit" />
+			<role name="uniqueInstance" element="redis.clients.jedis.search.aggr.Limit::NO_LIMIT:redis.clients.jedis.search.aggr.Limit" />
+		</instance>
+	</pattern>
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="redis.clients.jedis.CommandObjects" />
+			<role name="Adapter" element="redis.clients.jedis.Pipeline" />
+			<role name="adaptee" element="redis.clients.jedis.Pipeline::commandObjects:redis.clients.jedis.CommandObjects" />
+			<role name="Request()" element="redis.clients.jedis.Pipeline::select(int):redis.clients.jedis.Response" />
+			<role name="Request()" element="redis.clients.jedis.Pipeline::dbSize():redis.clients.jedis.Response" />
+			<role name="Request()" element="redis.clients.jedis.Pipeline::swapDB(int, int):redis.clients.jedis.Response" />
+			<role name="Request()" element="redis.clients.jedis.Pipeline::move(java.lang.String, int):redis.clients.jedis.Response" />
+			<role name="Request()" element="redis.clients.jedis.Pipeline::move(byte[], int):redis.clients.jedis.Response" />
+			<role name="Request()" element="redis.clients.jedis.Pipeline::copy(java.lang.String, java.lang.String, int, boolean):redis.clients.jedis.Response" />
+			<role name="Request()" element="redis.clients.jedis.Pipeline::copy(byte[], byte[], int, boolean):redis.clients.jedis.Response" />
+			<role name="Request()" element="redis.clients.jedis.Pipeline::migrate(java.lang.String, int, byte[], int, int):redis.clients.jedis.Response" />
+			<role name="Request()" element="redis.clients.jedis.Pipeline::migrate(java.lang.String, int, java.lang.String, int, int):redis.clients.jedis.Response" />
+			<role name="Request()" element="redis.clients.jedis.Pipeline::migrate(java.lang.String, int, int, int, redis.clients.jedis.params.MigrateParams, byte[][]):redis.clients.jedis.Response" />
+			<role name="Request()" element="redis.clients.jedis.Pipeline::migrate(java.lang.String, int, int, int, redis.clients.jedis.params.MigrateParams, java.lang.String[]):redis.clients.jedis.Response" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="redis.clients.jedis.CommandObjects" />
+			<role name="Adapter" element="redis.clients.jedis.Jedis" />
+			<role name="adaptee" element="redis.clients.jedis.Jedis::commandObjects:redis.clients.jedis.CommandObjects" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::copy(byte[], byte[], int, boolean):boolean" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::migrate(java.lang.String, int, byte[], int, int):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::migrate(java.lang.String, int, int, int, redis.clients.jedis.params.MigrateParams, byte[][]):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::copy(java.lang.String, java.lang.String, int, boolean):boolean" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::migrate(java.lang.String, int, java.lang.String, int, int):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::migrate(java.lang.String, int, int, int, redis.clients.jedis.params.MigrateParams, java.lang.String[]):java.lang.String" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="redis.clients.jedis.CommandObjects" />
+			<role name="Adapter" element="redis.clients.jedis.UnifiedJedis" />
+			<role name="adaptee" element="redis.clients.jedis.UnifiedJedis::commandObjects:redis.clients.jedis.CommandObjects" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::waitReplicas(java.lang.String, int, long):long" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::eval(java.lang.String, java.lang.String):java.lang.Object" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::evalsha(java.lang.String, java.lang.String):java.lang.Object" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::scriptExists(java.lang.String, java.lang.String[]):java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::scriptLoad(java.lang.String, java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::scriptFlush(java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::scriptFlush(java.lang.String, redis.clients.jedis.args.FlushMode):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::scriptKill(java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::waitReplicas(byte[], int, long):long" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::eval(byte[], byte[]):java.lang.Object" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::evalsha(byte[], byte[]):java.lang.Object" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::scriptExists(byte[], byte[][]):java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::scriptLoad(byte[], byte[]):byte[]" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::scriptFlush(byte[]):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::scriptFlush(byte[], redis.clients.jedis.args.FlushMode):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::scriptKill(byte[]):java.lang.String" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="redis.clients.jedis.Connection" />
+			<role name="Adapter" element="redis.clients.jedis.Jedis" />
+			<role name="adaptee" element="redis.clients.jedis.Jedis::connection:redis.clients.jedis.Connection" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::ping():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::quit():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::flushDB():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::flushAll():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::flushAll(redis.clients.jedis.args.FlushMode):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::auth(java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::auth(java.lang.String, java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::save():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::bgsave():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::bgsaveSchedule():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::bgrewriteaof():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::lastsave():long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::shutdown():void" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::shutdown(redis.clients.jedis.args.SaveMode):void" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::shutdown(redis.clients.jedis.params.ShutdownParams):void" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::shutdownAbort():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::info():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::info(java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::slaveof(java.lang.String, int):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::slaveofNoOne():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::replicaof(java.lang.String, int):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::replicaofNoOne():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::echo(byte[]):byte[]" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::waitReplicas(int, long):long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::ping(java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::echo(java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::lolwut():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::lolwut(redis.clients.jedis.params.LolwutParams):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::copy(byte[], byte[], int, boolean):boolean" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::flushDB(redis.clients.jedis.args.FlushMode):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::dbSize():long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::select(int):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::swapDB(int, int):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::move(byte[], int):long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::migrate(java.lang.String, int, byte[], int, int):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::migrate(java.lang.String, int, int, int, redis.clients.jedis.params.MigrateParams, byte[][]):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::copy(java.lang.String, java.lang.String, int, boolean):boolean" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::move(java.lang.String, int):long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::migrate(java.lang.String, int, java.lang.String, int, int):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::migrate(java.lang.String, int, int, int, redis.clients.jedis.params.MigrateParams, java.lang.String[]):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::role():java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::objectRefcount(java.lang.String):java.lang.Long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::objectEncoding(java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::objectIdletime(java.lang.String):java.lang.Long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::objectHelp():java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::objectFreq(java.lang.String):java.lang.Long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::memoryDoctor():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::memoryUsage(java.lang.String):java.lang.Long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::memoryUsage(java.lang.String, int):java.lang.Long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::memoryPurge():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::memoryStats():java.util.Map" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::roleBinary():java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::objectRefcount(byte[]):java.lang.Long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::objectEncoding(byte[]):byte[]" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::objectIdletime(byte[]):java.lang.Long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::objectHelpBinary():java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::objectFreq(byte[]):java.lang.Long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::memoryDoctorBinary():byte[]" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::memoryUsage(byte[]):java.lang.Long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::memoryUsage(byte[], int):java.lang.Long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::readonly():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::readwrite():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterNodes():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterMeet(java.lang.String, int):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterReset():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterReset(redis.clients.jedis.args.ClusterResetType):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterAddSlots(int[]):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterDelSlots(int[]):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterInfo():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterGetKeysInSlot(int, int):java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterGetKeysInSlotBinary(int, int):java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterSetSlotNode(int, java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterSetSlotMigrating(int, java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterSetSlotImporting(int, java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterSetSlotStable(int):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterForget(java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterFlushSlots():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterKeySlot(java.lang.String):long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterCountFailureReports(java.lang.String):long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterCountKeysInSlot(int):long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterSaveConfig():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterSetConfigEpoch(long):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterBumpEpoch():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterReplicate(java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterSlaves(java.lang.String):java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterReplicas(java.lang.String):java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterFailover():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterFailover(redis.clients.jedis.args.ClusterFailoverOption):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterSlots():java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterMyId():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterLinks():java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterAddSlotsRange(int[]):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::clusterDelSlotsRange(int[]):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::asking():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::moduleLoad(java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::moduleLoad(java.lang.String, java.lang.String[]):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::moduleUnload(java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::moduleList():java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::failover():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::failover(redis.clients.jedis.params.FailoverParams):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::failoverAbort():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::sentinelMyId():java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::sentinelMasters():java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::sentinelMaster(java.lang.String):java.util.Map" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::sentinelSentinels(java.lang.String):java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::sentinelGetMasterAddrByName(java.lang.String):java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::sentinelReset(java.lang.String):java.lang.Long" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::sentinelSlaves(java.lang.String):java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::sentinelReplicas(java.lang.String):java.util.List" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::sentinelFailover(java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::sentinelMonitor(java.lang.String, java.lang.String, int, int):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::sentinelRemove(java.lang.String):java.lang.String" />
+			<role name="Request()" element="redis.clients.jedis.Jedis::sentinelSet(java.lang.String, java.util.Map):java.lang.String" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="redis.clients.jedis.GeoCoordinate" />
+			<role name="Adapter" element="redis.clients.jedis.params.GeoSearchParam" />
+			<role name="adaptee" element="redis.clients.jedis.params.GeoSearchParam::coord:redis.clients.jedis.GeoCoordinate" />
+			<role name="Request()" element="redis.clients.jedis.params.GeoSearchParam::addParams(redis.clients.jedis.CommandArguments):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="redis.clients.jedis.HostAndPort" />
+			<role name="Adapter" element="redis.clients.jedis.params.FailoverParams" />
+			<role name="adaptee" element="redis.clients.jedis.params.FailoverParams::to:redis.clients.jedis.HostAndPort" />
+			<role name="Request()" element="redis.clients.jedis.params.FailoverParams::addParams(redis.clients.jedis.CommandArguments):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="redis.clients.jedis.search.IndexDefinition$Type" />
+			<role name="Adapter" element="redis.clients.jedis.search.IndexDefinition" />
+			<role name="adaptee" element="redis.clients.jedis.search.IndexDefinition::type:redis.clients.jedis.search.IndexDefinition$Type" />
+			<role name="Request()" element="redis.clients.jedis.search.IndexDefinition::addParams(redis.clients.jedis.CommandArguments):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="redis.clients.jedis.search.Schema$FieldType" />
+			<role name="Adapter" element="redis.clients.jedis.search.Schema$Field" />
+			<role name="adaptee" element="redis.clients.jedis.search.Schema$Field::type:redis.clients.jedis.search.Schema$FieldType" />
+			<role name="Request()" element="redis.clients.jedis.search.Schema$Field::addParams(redis.clients.jedis.CommandArguments):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="redis.clients.jedis.JedisClusterInfoCache" />
+			<role name="Adapter" element="redis.clients.jedis.providers.ClusterConnectionProvider" />
+			<role name="adaptee" element="redis.clients.jedis.providers.ClusterConnectionProvider::cache:redis.clients.jedis.JedisClusterInfoCache" />
+			<role name="Request()" element="redis.clients.jedis.providers.ClusterConnectionProvider::getConnection():redis.clients.jedis.Connection" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="redis.clients.jedis.args.SaveMode" />
+			<role name="Adapter" element="redis.clients.jedis.params.ShutdownParams" />
+			<role name="adaptee" element="redis.clients.jedis.params.ShutdownParams::saveMode:redis.clients.jedis.args.SaveMode" />
+			<role name="Request()" element="redis.clients.jedis.params.ShutdownParams::addParams(redis.clients.jedis.CommandArguments):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="redis.clients.jedis.providers.ClusterConnectionProvider" />
+			<role name="Adapter" element="redis.clients.jedis.ClusterPipeline" />
+			<role name="adaptee" element="redis.clients.jedis.ClusterPipeline::provider:redis.clients.jedis.providers.ClusterConnectionProvider" />
+			<role name="Request()" element="redis.clients.jedis.ClusterPipeline::getNodeKey(redis.clients.jedis.CommandArguments):redis.clients.jedis.HostAndPort" />
+			<role name="Request()" element="redis.clients.jedis.ClusterPipeline::getConnection(redis.clients.jedis.HostAndPort):redis.clients.jedis.Connection" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="redis.clients.jedis.providers.ShardedConnectionProvider" />
+			<role name="Adapter" element="redis.clients.jedis.ShardedPipeline" />
+			<role name="adaptee" element="redis.clients.jedis.ShardedPipeline::provider:redis.clients.jedis.providers.ShardedConnectionProvider" />
+			<role name="Request()" element="redis.clients.jedis.ShardedPipeline::getNodeKey(redis.clients.jedis.CommandArguments):redis.clients.jedis.HostAndPort" />
+			<role name="Request()" element="redis.clients.jedis.ShardedPipeline::getConnection(redis.clients.jedis.HostAndPort):redis.clients.jedis.Connection" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="redis.clients.jedis.util.Pool" />
+			<role name="Adapter" element="redis.clients.jedis.providers.PooledConnectionProvider" />
+			<role name="adaptee" element="redis.clients.jedis.providers.PooledConnectionProvider::pool:redis.clients.jedis.util.Pool" />
+			<role name="Request()" element="redis.clients.jedis.providers.PooledConnectionProvider::getConnection():redis.clients.jedis.Connection" />
+			<role name="Request()" element="redis.clients.jedis.providers.PooledConnectionProvider::getConnection(redis.clients.jedis.CommandArguments):redis.clients.jedis.Connection" />
+		</instance>
+	</pattern>
+	<pattern name="Command">
+		<instance>
+			<role name="Receiver" element="redis.clients.jedis.Connection" />
+			<role name="ConcreteCommand" element="redis.clients.jedis.executors.SimpleCommandExecutor" />
+			<role name="receiver" element="redis.clients.jedis.executors.SimpleCommandExecutor::connection:redis.clients.jedis.Connection" />
+			<role name="Execute()" element="redis.clients.jedis.executors.SimpleCommandExecutor::executeCommand():java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="Receiver" element="redis.clients.jedis.providers.ConnectionProvider" />
+			<role name="ConcreteCommand" element="redis.clients.jedis.executors.DefaultCommandExecutor" />
+			<role name="receiver" element="redis.clients.jedis.executors.DefaultCommandExecutor::provider:redis.clients.jedis.providers.ConnectionProvider" />
+			<role name="Execute()" element="redis.clients.jedis.executors.DefaultCommandExecutor::executeCommand():java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="Receiver" element="redis.clients.jedis.providers.ConnectionProvider" />
+			<role name="ConcreteCommand" element="redis.clients.jedis.executors.RetryableCommandExecutor" />
+			<role name="receiver" element="redis.clients.jedis.executors.RetryableCommandExecutor::provider:redis.clients.jedis.providers.ConnectionProvider" />
+			<role name="Execute()" element="redis.clients.jedis.executors.RetryableCommandExecutor::executeCommand():java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="Receiver" element="redis.clients.jedis.providers.ClusterConnectionProvider" />
+			<role name="ConcreteCommand" element="redis.clients.jedis.executors.ClusterCommandExecutor" />
+			<role name="receiver" element="redis.clients.jedis.executors.ClusterCommandExecutor::provider:redis.clients.jedis.providers.ClusterConnectionProvider" />
+			<role name="Execute()" element="redis.clients.jedis.executors.ClusterCommandExecutor::executeCommand():java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="ConcreteCommand" element="redis.clients.jedis.graph.GraphCommandObjects$GraphCacheImpl" />
+			<role name="Receiver" element="redis.clients.jedis.graph.GraphCommandObjects$GraphCacheList" />
+			<role name="receiver" element="redis.clients.jedis.graph.GraphCommandObjects$GraphCacheImpl::labels:redis.clients.jedis.graph.GraphCommandObjects$GraphCacheList" />
+			<role name="receiver" element="redis.clients.jedis.graph.GraphCommandObjects$GraphCacheImpl::relationshipTypes:redis.clients.jedis.graph.GraphCommandObjects$GraphCacheList" />
+			<role name="receiver" element="redis.clients.jedis.graph.GraphCommandObjects$GraphCacheImpl::propertyNames:redis.clients.jedis.graph.GraphCommandObjects$GraphCacheList" />
+			<role name="Execute()" element="redis.clients.jedis.graph.GraphCommandObjects$GraphCacheImpl::getLabel(int):java.lang.String" />
+			<role name="Execute()" element="redis.clients.jedis.graph.GraphCommandObjects$GraphCacheImpl::getRelationshipType(int):java.lang.String" />
+			<role name="Execute()" element="redis.clients.jedis.graph.GraphCommandObjects$GraphCacheImpl::getPropertyName(int):java.lang.String" />
+		</instance>
+	</pattern>
+	<pattern name="Composite" />
+	<pattern name="Decorator" />
+	<pattern name="Observer" />
+	<pattern name="State">
+		<instance>
+			<role name="Context" element="redis.clients.jedis.BuilderFactory" />
+			<role name="State" element="redis.clients.jedis.Builder" />
+			<role name="state" element="redis.clients.jedis.BuilderFactory::STRING:redis.clients.jedis.Builder" />
+			<role name="Request()" element="redis.clients.jedis.BuilderFactory::createMapFromDecodingFunctions(java.util.Iterator, java.util.Map):java.util.Map" />
+		</instance>
+		<instance>
+			<role name="Context" element="redis.clients.jedis.Response" />
+			<role name="State" element="redis.clients.jedis.Builder" />
+			<role name="state" element="redis.clients.jedis.Response::builder:redis.clients.jedis.Builder" />
+			<role name="Request()" element="redis.clients.jedis.Response::build():void" />
+		</instance>
+		<instance>
+			<role name="State" element="redis.clients.jedis.JedisSocketFactory" />
+			<role name="Context" element="redis.clients.jedis.Connection" />
+			<role name="state" element="redis.clients.jedis.Connection::socketFactory:redis.clients.jedis.JedisSocketFactory" />
+			<role name="Request()" element="redis.clients.jedis.Connection::connect():void" />
+		</instance>
+		<instance>
+			<role name="State" element="redis.clients.jedis.HostAndPortMapper" />
+			<role name="Context" element="redis.clients.jedis.DefaultJedisSocketFactory" />
+			<role name="state" element="redis.clients.jedis.DefaultJedisSocketFactory::hostAndPortMapper:redis.clients.jedis.HostAndPortMapper" />
+			<role name="Request()" element="redis.clients.jedis.DefaultJedisSocketFactory::getSocketHostAndPort():redis.clients.jedis.HostAndPort" />
+		</instance>
+		<instance>
+			<role name="Context" element="redis.clients.jedis.UnifiedJedis" />
+			<role name="State" element="redis.clients.jedis.providers.ConnectionProvider" />
+			<role name="state" element="redis.clients.jedis.UnifiedJedis::provider:redis.clients.jedis.providers.ConnectionProvider" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::subscribe(redis.clients.jedis.JedisPubSub, java.lang.String[]):void" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::psubscribe(redis.clients.jedis.JedisPubSub, java.lang.String[]):void" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::subscribe(redis.clients.jedis.BinaryJedisPubSub, byte[][]):void" />
+			<role name="Request()" element="redis.clients.jedis.UnifiedJedis::psubscribe(redis.clients.jedis.BinaryJedisPubSub, byte[][]):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="redis.clients.jedis.executors.DefaultCommandExecutor" />
+			<role name="State" element="redis.clients.jedis.providers.ConnectionProvider" />
+			<role name="state" element="redis.clients.jedis.executors.DefaultCommandExecutor::provider:redis.clients.jedis.providers.ConnectionProvider" />
+			<role name="Request()" element="redis.clients.jedis.executors.DefaultCommandExecutor::executeCommand():java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="Context" element="redis.clients.jedis.executors.RetryableCommandExecutor" />
+			<role name="State" element="redis.clients.jedis.providers.ConnectionProvider" />
+			<role name="state" element="redis.clients.jedis.executors.RetryableCommandExecutor::provider:redis.clients.jedis.providers.ConnectionProvider" />
+			<role name="Request()" element="redis.clients.jedis.executors.RetryableCommandExecutor::executeCommand():java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="Context" element="redis.clients.jedis.graph.ResultSetBuilder" />
+			<role name="State" element="redis.clients.jedis.graph.GraphCache" />
+			<role name="state" element="redis.clients.jedis.graph.ResultSetBuilder::graphCache:redis.clients.jedis.graph.GraphCache" />
+			<role name="Request()" element="redis.clients.jedis.graph.ResultSetBuilder::deserializeNode(java.util.List):redis.clients.jedis.graph.entities.Node" />
+			<role name="Request()" element="redis.clients.jedis.graph.ResultSetBuilder::deserializeEdge(java.util.List):redis.clients.jedis.graph.entities.Edge" />
+			<role name="Request()" element="redis.clients.jedis.graph.ResultSetBuilder::deserializeGraphEntityProperties(redis.clients.jedis.graph.entities.GraphEntity, java.util.List):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="redis.clients.jedis.ShardedCommandArguments" />
+			<role name="State" element="redis.clients.jedis.util.Hashing" />
+			<role name="state" element="redis.clients.jedis.ShardedCommandArguments::algo:redis.clients.jedis.util.Hashing" />
+			<role name="Request()" element="redis.clients.jedis.ShardedCommandArguments::processKey(byte[]):redis.clients.jedis.CommandArguments" />
+			<role name="Request()" element="redis.clients.jedis.ShardedCommandArguments::processKey(java.lang.String):redis.clients.jedis.CommandArguments" />
+		</instance>
+		<instance>
+			<role name="Context" element="redis.clients.jedis.providers.ShardedConnectionProvider" />
+			<role name="State" element="redis.clients.jedis.util.Hashing" />
+			<role name="state" element="redis.clients.jedis.providers.ShardedConnectionProvider::algo:redis.clients.jedis.util.Hashing" />
+			<role name="Request()" element="redis.clients.jedis.providers.ShardedConnectionProvider::initialize(java.util.List):void" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method">
+		<instance>
+			<role name="AbstractClass" element="redis.clients.jedis.JedisMonitor" />
+			<role name="TemplateMethod()" element="redis.clients.jedis.JedisMonitor::proceed(redis.clients.jedis.Connection):void" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="redis.clients.jedis.MultiNodePipelineBase" />
+			<role name="TemplateMethod()" element="redis.clients.jedis.MultiNodePipelineBase::appendCommand():redis.clients.jedis.Response" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="redis.clients.jedis.TransactionBase" />
+			<role name="TemplateMethod()" element="redis.clients.jedis.TransactionBase::multi():void" />
+			<role name="TemplateMethod()" element="redis.clients.jedis.TransactionBase::appendCommand():redis.clients.jedis.Response" />
+			<role name="TemplateMethod()" element="redis.clients.jedis.TransactionBase::exec():java.util.List" />
+			<role name="TemplateMethod()" element="redis.clients.jedis.TransactionBase::discard():java.lang.String" />
+		</instance>
+	</pattern>
+	<pattern name="Visitor" />
+	<pattern name="Proxy">
+		<instance>
+			<role name="Proxy" element="redis.clients.jedis.search.IndexOptions" />
+			<role name="RealSubject" element="redis.clients.jedis.search.IndexDefinition" />
+			<role name="Request()" element="redis.clients.jedis.search.IndexOptions::addParams(redis.clients.jedis.CommandArguments):void" />
+		</instance>
+		<instance>
+			<role name="Proxy" element="redis.clients.jedis.search.Schema$Field" />
+			<role name="RealSubject" element="redis.clients.jedis.search.FieldName" />
+			<role name="Request()" element="redis.clients.jedis.search.Schema$Field::addParams(redis.clients.jedis.CommandArguments):void" />
+		</instance>
+	</pattern>
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method" />
+	<pattern name="Prototype" />
+	<pattern name="Singleton" />
+	<pattern name="(Object)Adapter" />
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator" />
+	<pattern name="Observer" />
+	<pattern name="State">
+		<instance>
+			<role name="Context" element="io.searchbox.client.config.discovery.NodeChecker" />
+			<role name="State" element="io.searchbox.client.JestClient" />
+			<role name="state" element="io.searchbox.client.config.discovery.NodeChecker::client:io.searchbox.client.JestClient" />
+			<role name="Request()" element="io.searchbox.client.config.discovery.NodeChecker::runOneIteration():void" />
+			<role name="Request()" element="io.searchbox.client.config.discovery.NodeChecker::removeNodeAndUpdateServers(java.lang.String):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="io.searchbox.client.config.idle.IdleConnectionReaper" />
+			<role name="State" element="io.searchbox.client.config.idle.ReapableConnectionManager" />
+			<role name="state" element="io.searchbox.client.config.idle.IdleConnectionReaper::reapableConnectionManager:io.searchbox.client.config.idle.ReapableConnectionManager" />
+			<role name="Request()" element="io.searchbox.client.config.idle.IdleConnectionReaper::runOneIteration():void" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method">
+		<instance>
+			<role name="AbstractClass" element="io.searchbox.action.AbstractAction" />
+			<role name="TemplateMethod()" element="io.searchbox.action.AbstractAction::toString():java.lang.String" />
+			<role name="TemplateMethod()" element="io.searchbox.action.AbstractAction::hashCode():int" />
+			<role name="TemplateMethod()" element="io.searchbox.action.AbstractAction::equals(java.lang.Object):boolean" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="io.searchbox.indices.aliases.AliasMapping" />
+			<role name="TemplateMethod()" element="io.searchbox.indices.aliases.AliasMapping::getData():java.util.List" />
+		</instance>
+	</pattern>
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

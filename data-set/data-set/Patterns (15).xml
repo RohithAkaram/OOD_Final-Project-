@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method" />
+	<pattern name="Prototype" />
+	<pattern name="Singleton">
+		<instance>
+			<role name="Singleton" element="org.testcontainers.containers.Network" />
+			<role name="uniqueInstance" element="org.testcontainers.containers.Network::SHARED:org.testcontainers.containers.Network" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="org.testcontainers.containers.output.OutputFrame" />
+			<role name="uniqueInstance" element="org.testcontainers.containers.output.OutputFrame::END:org.testcontainers.containers.output.OutputFrame" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="org.testcontainers.containers.PortForwardingContainer" />
+			<role name="uniqueInstance" element="org.testcontainers.containers.PortForwardingContainer::INSTANCE:org.testcontainers.containers.PortForwardingContainer" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="org.testcontainers.dockerclient.RootlessDockerClientProviderStrategy$LibC" />
+			<role name="uniqueInstance" element="org.testcontainers.dockerclient.RootlessDockerClientProviderStrategy$LibC::INSTANCE:org.testcontainers.dockerclient.RootlessDockerClientProviderStrategy$LibC" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="org.testcontainers.DockerClientFactory" />
+			<role name="uniqueInstance" element="org.testcontainers.DockerClientFactory::instance:org.testcontainers.DockerClientFactory" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="org.testcontainers.images.LocalImagesCache" />
+			<role name="uniqueInstance" element="org.testcontainers.images.LocalImagesCache::INSTANCE:org.testcontainers.images.LocalImagesCache" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="org.testcontainers.utility.ComparableVersion" />
+			<role name="uniqueInstance" element="org.testcontainers.utility.ComparableVersion::OS_VERSION:org.testcontainers.utility.ComparableVersion" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="org.testcontainers.utility.DockerMachineClient" />
+			<role name="uniqueInstance" element="org.testcontainers.utility.DockerMachineClient::instance:org.testcontainers.utility.DockerMachineClient" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="org.testcontainers.utility.RegistryAuthLocator" />
+			<role name="uniqueInstance" element="org.testcontainers.utility.RegistryAuthLocator::instance:org.testcontainers.utility.RegistryAuthLocator" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="org.testcontainers.utility.ResourceReaper" />
+			<role name="uniqueInstance" element="org.testcontainers.utility.ResourceReaper::instance:org.testcontainers.utility.ResourceReaper" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="org.testcontainers.utility.Versioning$TagVersioning" />
+			<role name="uniqueInstance" element="org.testcontainers.utility.Versioning$TagVersioning::LATEST:org.testcontainers.utility.Versioning$TagVersioning" />
+		</instance>
+	</pattern>
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="org.testcontainers.containers.DockerComposeContainer$RemoveImages" />
+			<role name="Adapter" element="org.testcontainers.containers.DockerComposeContainer" />
+			<role name="adaptee" element="org.testcontainers.containers.DockerComposeContainer::removeImages:org.testcontainers.containers.DockerComposeContainer$RemoveImages" />
+			<role name="Request()" element="org.testcontainers.containers.DockerComposeContainer::stop():void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="org.testcontainers.utility.TestcontainersConfiguration" />
+			<role name="Adapter" element="org.testcontainers.utility.ConfigurationFileImageNameSubstitutor" />
+			<role name="adaptee" element="org.testcontainers.utility.ConfigurationFileImageNameSubstitutor::configuration:org.testcontainers.utility.TestcontainersConfiguration" />
+			<role name="Request()" element="org.testcontainers.utility.ConfigurationFileImageNameSubstitutor::apply(org.testcontainers.utility.DockerImageName):org.testcontainers.utility.DockerImageName" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="org.testcontainers.utility.TestcontainersConfiguration" />
+			<role name="Adapter" element="org.testcontainers.utility.PrefixingImageNameSubstitutor" />
+			<role name="adaptee" element="org.testcontainers.utility.PrefixingImageNameSubstitutor::configuration:org.testcontainers.utility.TestcontainersConfiguration" />
+			<role name="Request()" element="org.testcontainers.utility.PrefixingImageNameSubstitutor::apply(org.testcontainers.utility.DockerImageName):org.testcontainers.utility.DockerImageName" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="org.testcontainers.images.RemoteDockerImage" />
+			<role name="Adapter" element="org.testcontainers.containers.GenericContainer" />
+			<role name="adaptee" element="org.testcontainers.containers.GenericContainer::image:org.testcontainers.images.RemoteDockerImage" />
+			<role name="Request()" element="org.testcontainers.containers.GenericContainer::getDockerImageName():java.lang.String" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="org.testcontainers.images.LocalImagesCache" />
+			<role name="Adapter" element="org.testcontainers.images.AbstractImagePullPolicy" />
+			<role name="adaptee" element="org.testcontainers.images.AbstractImagePullPolicy::LOCAL_IMAGES_CACHE:org.testcontainers.images.LocalImagesCache" />
+			<role name="Request()" element="org.testcontainers.images.AbstractImagePullPolicy::shouldPull(org.testcontainers.utility.DockerImageName):boolean" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator">
+		<instance>
+			<role name="Component" element="org.testcontainers.utility.ImageNameSubstitutor" />
+			<role name="Decorator" element="org.testcontainers.utility.ImageNameSubstitutor$ChainedImageNameSubstitutor" />
+			<role name="component" element="org.testcontainers.utility.ImageNameSubstitutor$ChainedImageNameSubstitutor::defaultInstance:org.testcontainers.utility.ImageNameSubstitutor" />
+			<role name="component" element="org.testcontainers.utility.ImageNameSubstitutor$ChainedImageNameSubstitutor::configuredInstance:org.testcontainers.utility.ImageNameSubstitutor" />
+			<role name="Operation()" element="org.testcontainers.utility.ImageNameSubstitutor$ChainedImageNameSubstitutor::getDescription():java.lang.String" />
+		</instance>
+		<instance>
+			<role name="Component" element="org.testcontainers.utility.ImageNameSubstitutor" />
+			<role name="Decorator" element="org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor" />
+			<role name="component" element="org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor::wrappedInstance:org.testcontainers.utility.ImageNameSubstitutor" />
+			<role name="Operation()" element="org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor::apply(org.testcontainers.utility.DockerImageName):org.testcontainers.utility.DockerImageName" />
+			<role name="Operation()" element="org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor::getDescription():java.lang.String" />
+		</instance>
+	</pattern>
+	<pattern name="Observer" />
+	<pattern name="State">
+		<instance>
+			<role name="State" element="org.testcontainers.utility.Versioning" />
+			<role name="Context" element="org.testcontainers.utility.DockerImageName" />
+			<role name="state" element="org.testcontainers.utility.DockerImageName::versioning:org.testcontainers.utility.Versioning" />
+			<role name="Request()" element="org.testcontainers.utility.DockerImageName::asCanonicalNameString():java.lang.String" />
+			<role name="Request()" element="org.testcontainers.utility.DockerImageName::assertValid():void" />
+		</instance>
+		<instance>
+			<role name="Context" element="org.testcontainers.containers.VncRecordingContainer" />
+			<role name="State" element="org.testcontainers.containers.VncRecordingContainer$VncRecordingFormat" />
+			<role name="state" element="org.testcontainers.containers.VncRecordingContainer::videoFormat:org.testcontainers.containers.VncRecordingContainer$VncRecordingFormat" />
+			<role name="Request()" element="org.testcontainers.containers.VncRecordingContainer::streamRecording():java.io.InputStream" />
+		</instance>
+		<instance>
+			<role name="Context" element="org.testcontainers.images.RemoteDockerImage" />
+			<role name="State" element="org.testcontainers.utility.ImageNameSubstitutor" />
+			<role name="state" element="org.testcontainers.images.RemoteDockerImage::imageNameSubstitutor:org.testcontainers.utility.ImageNameSubstitutor" />
+			<role name="Request()" element="org.testcontainers.images.RemoteDockerImage::getImageName():org.testcontainers.utility.DockerImageName" />
+		</instance>
+		<instance>
+			<role name="Context" element="org.testcontainers.containers.GenericContainer" />
+			<role name="State" element="org.testcontainers.containers.Network" />
+			<role name="state" element="org.testcontainers.containers.GenericContainer::network:org.testcontainers.containers.Network" />
+			<role name="Request()" element="org.testcontainers.containers.GenericContainer::applyConfiguration(com.github.dockerjava.api.command.CreateContainerCmd):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="org.testcontainers.images.RemoteDockerImage" />
+			<role name="State" element="org.testcontainers.images.ImagePullPolicy" />
+			<role name="state" element="org.testcontainers.images.RemoteDockerImage::imagePullPolicy:org.testcontainers.images.ImagePullPolicy" />
+			<role name="Request()" element="org.testcontainers.images.RemoteDockerImage::resolve():java.lang.String" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method">
+		<instance>
+			<role name="AbstractClass" element="org.testcontainers.containers.startupcheck.StartupCheckStrategy" />
+			<role name="TemplateMethod()" element="org.testcontainers.containers.startupcheck.StartupCheckStrategy::lambda$null$0(com.github.dockerjava.api.DockerClient, java.lang.String, java.lang.Boolean[]):java.lang.Boolean" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="org.testcontainers.containers.wait.strategy.AbstractWaitStrategy" />
+			<role name="TemplateMethod()" element="org.testcontainers.containers.wait.strategy.AbstractWaitStrategy::waitUntilReady(org.testcontainers.containers.wait.strategy.WaitStrategyTarget):void" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="org.testcontainers.dockerclient.DockerClientProviderStrategy" />
+			<role name="TemplateMethod()" element="org.testcontainers.dockerclient.DockerClientProviderStrategy::test():boolean" />
+			<role name="TemplateMethod()" element="org.testcontainers.dockerclient.DockerClientProviderStrategy::tryOutStrategy(java.util.List, org.testcontainers.dockerclient.DockerClientProviderStrategy):boolean" />
+			<role name="TemplateMethod()" element="org.testcontainers.dockerclient.DockerClientProviderStrategy::getDockerHostIpAddress():java.lang.String" />
+			<role name="TemplateMethod()" element="org.testcontainers.dockerclient.DockerClientProviderStrategy::getDockerClient():com.github.dockerjava.api.DockerClient" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="org.testcontainers.images.AbstractImagePullPolicy" />
+			<role name="TemplateMethod()" element="org.testcontainers.images.AbstractImagePullPolicy::shouldPull(org.testcontainers.utility.DockerImageName):boolean" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="org.testcontainers.utility.ImageNameSubstitutor" />
+			<role name="TemplateMethod()" element="org.testcontainers.utility.ImageNameSubstitutor::instance():org.testcontainers.utility.ImageNameSubstitutor" />
+			<role name="TemplateMethod()" element="org.testcontainers.utility.ImageNameSubstitutor::apply(java.lang.Object):java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="org.testcontainers.utility.LazyFuture" />
+			<role name="TemplateMethod()" element="org.testcontainers.utility.LazyFuture::getResolvedValue():java.lang.Object" />
+		</instance>
+	</pattern>
+	<pattern name="Visitor" />
+	<pattern name="Proxy">
+		<instance>
+			<role name="Proxy" element="org.testcontainers.utility.DefaultImageNameSubstitutor" />
+			<role name="RealSubject" element="org.testcontainers.utility.ConfigurationFileImageNameSubstitutor" />
+			<role name="Request()" element="org.testcontainers.utility.DefaultImageNameSubstitutor::getDescription():java.lang.String" />
+		</instance>
+		<instance>
+			<role name="Proxy" element="org.testcontainers.utility.DefaultImageNameSubstitutor" />
+			<role name="RealSubject" element="org.testcontainers.utility.PrefixingImageNameSubstitutor" />
+			<role name="Request()" element="org.testcontainers.utility.DefaultImageNameSubstitutor::getDescription():java.lang.String" />
+		</instance>
+	</pattern>
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

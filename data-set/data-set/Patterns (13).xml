@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method" />
+	<pattern name="Prototype" />
+	<pattern name="Singleton">
+		<instance>
+			<role name="Singleton" element="io.socket.util.Optional" />
+			<role name="uniqueInstance" element="io.socket.util.Optional::EMPTY:io.socket.util.Optional" />
+		</instance>
+	</pattern>
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="io.socket.parser.IOParser$BinaryReconstructor" />
+			<role name="Adapter" element="io.socket.parser.IOParser$Decoder" />
+			<role name="adaptee" element="io.socket.parser.IOParser$Decoder::reconstructor:io.socket.parser.IOParser$BinaryReconstructor" />
+			<role name="Request()" element="io.socket.parser.IOParser$Decoder::add(byte[]):void" />
+			<role name="Request()" element="io.socket.parser.IOParser$Decoder::destroy():void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="io.socket.parser.Parser$Decoder$Callback" />
+			<role name="Adapter" element="io.socket.parser.IOParser$Decoder" />
+			<role name="adaptee" element="io.socket.parser.IOParser$Decoder::onDecodedCallback:io.socket.parser.Parser$Decoder$Callback" />
+			<role name="Request()" element="io.socket.parser.IOParser$Decoder::add(java.lang.String):void" />
+			<role name="Request()" element="io.socket.parser.IOParser$Decoder::add(byte[]):void" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator" />
+	<pattern name="Observer" />
+	<pattern name="State">
+		<instance>
+			<role name="Context" element="io.socket.client.Manager" />
+			<role name="State" element="io.socket.parser.Parser$Decoder" />
+			<role name="state" element="io.socket.client.Manager::decoder:io.socket.parser.Parser$Decoder" />
+			<role name="Request()" element="io.socket.client.Manager::onopen():void" />
+			<role name="Request()" element="io.socket.client.Manager::cleanup():void" />
+		</instance>
+		<instance>
+			<role name="Context" element="io.socket.client.Manager" />
+			<role name="State" element="io.socket.parser.Parser$Encoder" />
+			<role name="state" element="io.socket.client.Manager::encoder:io.socket.parser.Parser$Encoder" />
+			<role name="Request()" element="io.socket.client.Manager::packet(io.socket.parser.Packet):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="io.socket.parser.Helpers" />
+			<role name="State" element="io.socket.parser.Parser$Encoder" />
+			<role name="state" element="io.socket.parser.Helpers::encoder:io.socket.parser.Parser$Encoder" />
+			<role name="Request()" element="io.socket.parser.Helpers::test(io.socket.parser.Packet):void" />
+			<role name="Request()" element="io.socket.parser.Helpers::testBin(io.socket.parser.Packet):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="io.socket.parser.IOParser$Decoder" />
+			<role name="State" element="io.socket.parser.Parser$Decoder$Callback" />
+			<role name="state" element="io.socket.parser.IOParser$Decoder::onDecodedCallback:io.socket.parser.Parser$Decoder$Callback" />
+			<role name="Request()" element="io.socket.parser.IOParser$Decoder::add(java.lang.String):void" />
+			<role name="Request()" element="io.socket.parser.IOParser$Decoder::add(byte[]):void" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method" />
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

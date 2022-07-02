@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method" />
+	<pattern name="Prototype" />
+	<pattern name="Singleton" />
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="com.structurizr.model.Element" />
+			<role name="Adapter" element="com.structurizr.view.DynamicView" />
+			<role name="adaptee" element="com.structurizr.view.DynamicView::element:com.structurizr.model.Element" />
+			<role name="Request()" element="com.structurizr.view.DynamicView::getName():java.lang.String" />
+			<role name="Request()" element="com.structurizr.view.DynamicView::checkElementCanBeAdded(com.structurizr.model.Element):void" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator" />
+	<pattern name="Observer" />
+	<pattern name="State">
+		<instance>
+			<role name="Context" element="com.structurizr.view.DynamicView" />
+			<role name="State" element="com.structurizr.model.Element" />
+			<role name="state" element="com.structurizr.view.DynamicView::element:com.structurizr.model.Element" />
+			<role name="Request()" element="com.structurizr.view.DynamicView::checkElementCanBeAdded(com.structurizr.model.Element):void" />
+		</instance>
+		<instance>
+			<role name="State" element="com.structurizr.model.IdGenerator" />
+			<role name="Context" element="com.structurizr.model.Model" />
+			<role name="state" element="com.structurizr.model.Model::idGenerator:com.structurizr.model.IdGenerator" />
+			<role name="Request()" element="com.structurizr.model.Model::addSoftwareSystem(com.structurizr.model.Location, java.lang.String, java.lang.String):com.structurizr.model.SoftwareSystem" />
+			<role name="Request()" element="com.structurizr.model.Model::addPerson(com.structurizr.model.Location, java.lang.String, java.lang.String):com.structurizr.model.Person" />
+			<role name="Request()" element="com.structurizr.model.Model::addCustomElement(java.lang.String, java.lang.String, java.lang.String):com.structurizr.model.CustomElement" />
+			<role name="Request()" element="com.structurizr.model.Model::addContainer(com.structurizr.model.SoftwareSystem, java.lang.String, java.lang.String, java.lang.String):com.structurizr.model.Container" />
+			<role name="Request()" element="com.structurizr.model.Model::addComponentOfType(com.structurizr.model.Container, java.lang.String, java.lang.String, java.lang.String, java.lang.String):com.structurizr.model.Component" />
+			<role name="Request()" element="com.structurizr.model.Model::addRelationship(com.structurizr.model.Relationship):boolean" />
+			<role name="Request()" element="com.structurizr.model.Model::addElementToInternalStructures(com.structurizr.model.Element):void" />
+			<role name="Request()" element="com.structurizr.model.Model::addRelationshipToInternalStructures(com.structurizr.model.Relationship):void" />
+			<role name="Request()" element="com.structurizr.model.Model::addDeploymentNode(com.structurizr.model.DeploymentNode, java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.util.Map):com.structurizr.model.DeploymentNode" />
+			<role name="Request()" element="com.structurizr.model.Model::addInfrastructureNode(com.structurizr.model.DeploymentNode, java.lang.String, java.lang.String, java.lang.String, java.util.Map):com.structurizr.model.InfrastructureNode" />
+			<role name="Request()" element="com.structurizr.model.Model::addSoftwareSystemInstance(com.structurizr.model.DeploymentNode, com.structurizr.model.SoftwareSystem, java.lang.String[]):com.structurizr.model.SoftwareSystemInstance" />
+			<role name="Request()" element="com.structurizr.model.Model::addContainerInstance(com.structurizr.model.DeploymentNode, com.structurizr.model.Container, java.lang.String[]):com.structurizr.model.ContainerInstance" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy">
+		<instance>
+			<role name="Strategy" element="com.structurizr.model.ImpliedRelationshipsStrategy" />
+			<role name="Context" element="com.structurizr.model.Model" />
+			<role name="strategy" element="com.structurizr.model.Model::impliedRelationshipsStrategy:com.structurizr.model.ImpliedRelationshipsStrategy" />
+			<role name="ContextInterface()" element="com.structurizr.model.Model::addRelationship(com.structurizr.model.Element, com.structurizr.model.Element, java.lang.String, java.lang.String, com.structurizr.model.InteractionStyle, java.lang.String[], boolean):com.structurizr.model.Relationship" />
+		</instance>
+	</pattern>
+	<pattern name="Bridge">
+		<instance>
+			<role name="Abstraction" element="com.structurizr.view.View" />
+			<role name="Implementor" element="com.structurizr.view.LayoutMergeStrategy" />
+			<role name="implementor" element="com.structurizr.view.View::layoutMergeStrategy:com.structurizr.view.LayoutMergeStrategy" />
+			<role name="Operation()" element="com.structurizr.view.View::copyLayoutInformationFrom(com.structurizr.view.View):void" />
+		</instance>
+	</pattern>
+	<pattern name="Template Method">
+		<instance>
+			<role name="AbstractClass" element="com.structurizr.model.ModelItem" />
+			<role name="TemplateMethod()" element="com.structurizr.model.ModelItem::getTagsAsSet():java.util.Set" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="com.structurizr.model.StaticStructureElementInstance" />
+			<role name="TemplateMethod()" element="com.structurizr.model.StaticStructureElementInstance::getName():java.lang.String" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="com.structurizr.view.View" />
+			<role name="TemplateMethod()" element="com.structurizr.view.View::addElement(com.structurizr.model.Element, boolean):void" />
+			<role name="TemplateMethod()" element="com.structurizr.view.View::removeElement(com.structurizr.model.Element):void" />
+		</instance>
+	</pattern>
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

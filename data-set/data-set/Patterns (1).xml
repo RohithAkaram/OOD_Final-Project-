@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method">
+		<instance>
+			<role name="Creator" element="com.aliyun.oss.common.auth.CredentialsProvider" />
+			<role name="FactoryMethod()" element="com.aliyun.oss.common.auth.CredentialsProvider::getCredentials():com.aliyun.oss.common.auth.Credentials" />
+		</instance>
+		<instance>
+			<role name="Creator" element="com.aliyun.oss.common.auth.HttpCredentialsFetcher" />
+			<role name="FactoryMethod()" element="com.aliyun.oss.common.auth.HttpCredentialsFetcher::parse(com.aliyuncs.http.HttpResponse):com.aliyun.oss.common.auth.Credentials" />
+		</instance>
+		<instance>
+			<role name="Creator" element="com.aliyun.oss.common.comm.ServiceClient" />
+			<role name="FactoryMethod()" element="com.aliyun.oss.common.comm.ServiceClient::getDefaultRetryStrategy():com.aliyun.oss.common.comm.RetryStrategy" />
+		</instance>
+		<instance>
+			<role name="Creator" element="com.aliyun.oss.OSS" />
+			<role name="FactoryMethod()" element="com.aliyun.oss.OSS::getBucketImage(java.lang.String):com.aliyun.oss.model.GetBucketImageResult" />
+		</instance>
+		<instance>
+			<role name="Creator" element="com.aliyun.oss.OSSBuilder" />
+			<role name="FactoryMethod()" element="com.aliyun.oss.OSSBuilder::build(java.lang.String, java.lang.String, java.lang.String):com.aliyun.oss.OSS" />
+			<role name="FactoryMethod()" element="com.aliyun.oss.OSSBuilder::build(java.lang.String, java.lang.String, java.lang.String, java.lang.String):com.aliyun.oss.OSS" />
+			<role name="FactoryMethod()" element="com.aliyun.oss.OSSBuilder::build(java.lang.String, java.lang.String, java.lang.String, com.aliyun.oss.ClientBuilderConfiguration):com.aliyun.oss.OSS" />
+			<role name="FactoryMethod()" element="com.aliyun.oss.OSSBuilder::build(java.lang.String, java.lang.String, java.lang.String, java.lang.String, com.aliyun.oss.ClientBuilderConfiguration):com.aliyun.oss.OSS" />
+			<role name="FactoryMethod()" element="com.aliyun.oss.OSSBuilder::build(java.lang.String, com.aliyun.oss.common.auth.CredentialsProvider):com.aliyun.oss.OSS" />
+			<role name="FactoryMethod()" element="com.aliyun.oss.OSSBuilder::build(java.lang.String, com.aliyun.oss.common.auth.CredentialsProvider, com.aliyun.oss.ClientBuilderConfiguration):com.aliyun.oss.OSS" />
+		</instance>
+	</pattern>
+	<pattern name="Prototype" />
+	<pattern name="Singleton">
+		<instance>
+			<role name="Singleton" element="com.aliyun.oss.common.comm.IdleConnectionReaper" />
+			<role name="uniqueInstance" element="com.aliyun.oss.common.comm.IdleConnectionReaper::instance:com.aliyun.oss.common.comm.IdleConnectionReaper" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="com.aliyun.oss.crypto.ContentCryptoMode" />
+			<role name="uniqueInstance" element="com.aliyun.oss.crypto.ContentCryptoMode::AES_CTR_MODE:com.aliyun.oss.crypto.ContentCryptoMode" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="com.aliyun.oss.crypto.CryptoCipher" />
+			<role name="uniqueInstance" element="com.aliyun.oss.crypto.CryptoCipher::Null:com.aliyun.oss.crypto.CryptoCipher" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="com.aliyun.oss.crypto.CryptoConfiguration" />
+			<role name="uniqueInstance" element="com.aliyun.oss.crypto.CryptoConfiguration::DEFAULT:com.aliyun.oss.crypto.CryptoConfiguration" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="com.aliyun.oss.crypto.CryptoScheme" />
+			<role name="uniqueInstance" element="com.aliyun.oss.crypto.CryptoScheme::AES_CTR:com.aliyun.oss.crypto.CryptoScheme" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="com.aliyun.oss.crypto.CryptoStorageMethod" />
+			<role name="uniqueInstance" element="com.aliyun.oss.crypto.CryptoStorageMethod::ObjectMetadata:com.aliyun.oss.crypto.CryptoStorageMethod" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="com.aliyun.oss.event.ProgressListener" />
+			<role name="uniqueInstance" element="com.aliyun.oss.event.ProgressListener::NOOP:com.aliyun.oss.event.ProgressListener" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="com.aliyun.oss.internal.Mimetypes" />
+			<role name="uniqueInstance" element="com.aliyun.oss.internal.Mimetypes::mimetypes:com.aliyun.oss.internal.Mimetypes" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="com.aliyun.oss.model.DataEncryptionAlgorithm" />
+			<role name="uniqueInstance" element="com.aliyun.oss.model.DataEncryptionAlgorithm::SM4:com.aliyun.oss.model.DataEncryptionAlgorithm" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="com.aliyun.oss.model.GroupGrantee" />
+			<role name="uniqueInstance" element="com.aliyun.oss.model.GroupGrantee::AllUsers:com.aliyun.oss.model.GroupGrantee" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="com.aliyun.oss.model.HnsStatus" />
+			<role name="uniqueInstance" element="com.aliyun.oss.model.HnsStatus::Enabled:com.aliyun.oss.model.HnsStatus" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="com.aliyun.oss.model.InventoryFormat" />
+			<role name="uniqueInstance" element="com.aliyun.oss.model.InventoryFormat::CSV:com.aliyun.oss.model.InventoryFormat" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="com.aliyun.oss.model.SelectObjectRequest$ExpressionType" />
+			<role name="uniqueInstance" element="com.aliyun.oss.model.SelectObjectRequest$ExpressionType::SQL:com.aliyun.oss.model.SelectObjectRequest$ExpressionType" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="com.aliyun.oss.model.WebServiceRequest" />
+			<role name="uniqueInstance" element="com.aliyun.oss.model.WebServiceRequest::NOOP:com.aliyun.oss.model.WebServiceRequest" />
+		</instance>
+	</pattern>
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.internal.CORSOperation" />
+			<role name="Adapter" element="com.aliyun.oss.OSSClient" />
+			<role name="adaptee" element="com.aliyun.oss.OSSClient::corsOperation:com.aliyun.oss.internal.CORSOperation" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setBucketCORS(com.aliyun.oss.model.SetBucketCORSRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketCORS(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.CORSConfiguration" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteBucketCORSRules(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::optionsObject(com.aliyun.oss.model.OptionsRequest):com.aliyun.oss.common.comm.ResponseMessage" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.internal.LiveChannelOperation" />
+			<role name="Adapter" element="com.aliyun.oss.OSSClient" />
+			<role name="adaptee" element="com.aliyun.oss.OSSClient::liveChannelOperation:com.aliyun.oss.internal.LiveChannelOperation" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::createLiveChannel(com.aliyun.oss.model.CreateLiveChannelRequest):com.aliyun.oss.model.CreateLiveChannelResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setLiveChannelStatus(com.aliyun.oss.model.SetLiveChannelRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getLiveChannelInfo(com.aliyun.oss.model.LiveChannelGenericRequest):com.aliyun.oss.model.LiveChannelInfo" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getLiveChannelStat(com.aliyun.oss.model.LiveChannelGenericRequest):com.aliyun.oss.model.LiveChannelStat" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteLiveChannel(com.aliyun.oss.model.LiveChannelGenericRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::listLiveChannels(java.lang.String):java.util.List" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::listLiveChannels(com.aliyun.oss.model.ListLiveChannelsRequest):com.aliyun.oss.model.LiveChannelListing" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getLiveChannelHistory(com.aliyun.oss.model.LiveChannelGenericRequest):java.util.List" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::generateVodPlaylist(com.aliyun.oss.model.GenerateVodPlaylistRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getVodPlaylist(com.aliyun.oss.model.GetVodPlaylistRequest):com.aliyun.oss.model.OSSObject" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::generateRtmpUri(com.aliyun.oss.model.GenerateRtmpUriRequest):java.lang.String" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.internal.OSSBucketOperation" />
+			<role name="Adapter" element="com.aliyun.oss.OSSClient" />
+			<role name="adaptee" element="com.aliyun.oss.OSSClient::bucketOperation:com.aliyun.oss.internal.OSSBucketOperation" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::createBucket(com.aliyun.oss.model.CreateBucketRequest):com.aliyun.oss.model.Bucket" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteBucket(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::listBuckets():java.util.List" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::listBuckets(com.aliyun.oss.model.ListBucketsRequest):com.aliyun.oss.model.BucketList" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::listBuckets(java.lang.String, java.lang.String, java.lang.Integer):com.aliyun.oss.model.BucketList" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setBucketAcl(com.aliyun.oss.model.SetBucketAclRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketAcl(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.AccessControlList" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketMetadata(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.BucketMetadata" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setBucketReferer(com.aliyun.oss.model.SetBucketRefererRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketReferer(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.BucketReferer" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketLocation(com.aliyun.oss.model.GenericRequest):java.lang.String" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::doesBucketExist(com.aliyun.oss.model.GenericRequest):boolean" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::listObjects(com.aliyun.oss.model.ListObjectsRequest):com.aliyun.oss.model.ObjectListing" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::listObjectsV2(com.aliyun.oss.model.ListObjectsV2Request):com.aliyun.oss.model.ListObjectsV2Result" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::listObjectsV2(java.lang.String):com.aliyun.oss.model.ListObjectsV2Result" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::listObjectsV2(java.lang.String, java.lang.String):com.aliyun.oss.model.ListObjectsV2Result" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::listObjectsV2(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Integer, java.lang.String, boolean):com.aliyun.oss.model.ListObjectsV2Result" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::listVersions(com.aliyun.oss.model.ListVersionsRequest):com.aliyun.oss.model.VersionListing" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setBucketLogging(com.aliyun.oss.model.SetBucketLoggingRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketLogging(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.BucketLoggingResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteBucketLogging(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::putBucketImage(com.aliyun.oss.model.PutBucketImageRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketImage(java.lang.String):com.aliyun.oss.model.GetBucketImageResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketImage(java.lang.String, com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.GetBucketImageResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteBucketImage(java.lang.String):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteBucketImage(java.lang.String, com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::putImageStyle(com.aliyun.oss.model.PutImageStyleRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteImageStyle(java.lang.String, java.lang.String):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteImageStyle(java.lang.String, java.lang.String, com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getImageStyle(java.lang.String, java.lang.String):com.aliyun.oss.model.GetImageStyleResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getImageStyle(java.lang.String, java.lang.String, com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.GetImageStyleResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::listImageStyle(java.lang.String):java.util.List" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::listImageStyle(java.lang.String, com.aliyun.oss.model.GenericRequest):java.util.List" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setBucketProcess(com.aliyun.oss.model.SetBucketProcessRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketProcess(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.BucketProcess" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setBucketWebsite(com.aliyun.oss.model.SetBucketWebsiteRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketWebsite(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.BucketWebsiteResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteBucketWebsite(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketVersioning(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.BucketVersioningConfiguration" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setBucketVersioning(com.aliyun.oss.model.SetBucketVersioningRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setBucketLifecycle(com.aliyun.oss.model.SetBucketLifecycleRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketLifecycle(com.aliyun.oss.model.GenericRequest):java.util.List" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteBucketLifecycle(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setBucketTagging(com.aliyun.oss.model.SetBucketTaggingRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketTagging(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.TagSet" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteBucketTagging(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::addBucketReplication(com.aliyun.oss.model.AddBucketReplicationRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketReplication(com.aliyun.oss.model.GenericRequest):java.util.List" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteBucketReplication(com.aliyun.oss.model.DeleteBucketReplicationRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketReplicationProgress(com.aliyun.oss.model.GetBucketReplicationProgressRequest):com.aliyun.oss.model.BucketReplicationProgress" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketReplicationLocation(com.aliyun.oss.model.GenericRequest):java.util.List" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::addBucketCname(com.aliyun.oss.model.AddBucketCnameRequest):com.aliyun.oss.model.AddBucketCnameResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketCname(com.aliyun.oss.model.GenericRequest):java.util.List" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteBucketCname(com.aliyun.oss.model.DeleteBucketCnameRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::createBucketCnameToken(com.aliyun.oss.model.CreateBucketCnameTokenRequest):com.aliyun.oss.model.CreateBucketCnameTokenResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketCnameToken(com.aliyun.oss.model.GetBucketCnameTokenRequest):com.aliyun.oss.model.GetBucketCnameTokenResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketInfo(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.BucketInfo" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketStat(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.BucketStat" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setBucketStorageCapacity(com.aliyun.oss.model.SetBucketStorageCapacityRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketStorageCapacity(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.UserQos" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setBucketEncryption(com.aliyun.oss.model.SetBucketEncryptionRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketEncryption(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.ServerSideEncryptionConfiguration" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteBucketEncryption(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setBucketPolicy(com.aliyun.oss.model.SetBucketPolicyRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketPolicy(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.GetBucketPolicyResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteBucketPolicy(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setBucketRequestPayment(com.aliyun.oss.model.SetBucketRequestPaymentRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketRequestPayment(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.GetBucketRequestPaymentResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setBucketQosInfo(com.aliyun.oss.model.SetBucketQosInfoRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketQosInfo(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.BucketQosInfo" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteBucketQosInfo(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getUserQosInfo():com.aliyun.oss.model.UserQosInfo" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setAsyncFetchTask(com.aliyun.oss.model.SetAsyncFetchTaskRequest):com.aliyun.oss.model.SetAsyncFetchTaskResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getAsyncFetchTask(com.aliyun.oss.model.GetAsyncFetchTaskRequest):com.aliyun.oss.model.GetAsyncFetchTaskResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::createVpcip(com.aliyun.oss.model.CreateVpcipRequest):com.aliyun.oss.model.CreateVpcipResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::listVpcip():java.util.List" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteVpcip(com.aliyun.oss.model.DeleteVpcipRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::createBucketVpcip(com.aliyun.oss.model.CreateBucketVpcipRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteBucketVpcip(com.aliyun.oss.model.DeleteBucketVpcipRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketVpcip(com.aliyun.oss.model.GenericRequest):java.util.List" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setBucketInventoryConfiguration(com.aliyun.oss.model.SetBucketInventoryConfigurationRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketInventoryConfiguration(com.aliyun.oss.model.GetBucketInventoryConfigurationRequest):com.aliyun.oss.model.GetBucketInventoryConfigurationResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::listBucketInventoryConfigurations(com.aliyun.oss.model.ListBucketInventoryConfigurationsRequest):com.aliyun.oss.model.ListBucketInventoryConfigurationsResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteBucketInventoryConfiguration(com.aliyun.oss.model.DeleteBucketInventoryConfigurationRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::initiateBucketWorm(com.aliyun.oss.model.InitiateBucketWormRequest):com.aliyun.oss.model.InitiateBucketWormResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::abortBucketWorm(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::completeBucketWorm(com.aliyun.oss.model.CompleteBucketWormRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::extendBucketWorm(com.aliyun.oss.model.ExtendBucketWormRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketWorm(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.GetBucketWormResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setBucketResourceGroup(com.aliyun.oss.model.SetBucketResourceGroupRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketResourceGroup(java.lang.String):com.aliyun.oss.model.GetBucketResourceGroupResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setBucketTransferAcceleration(java.lang.String, boolean):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getBucketTransferAcceleration(java.lang.String):com.aliyun.oss.model.TransferAcceleration" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteBucketTransferAcceleration(java.lang.String):com.aliyun.oss.model.VoidResult" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.internal.OSSMultipartOperation" />
+			<role name="Adapter" element="com.aliyun.oss.OSSClient" />
+			<role name="adaptee" element="com.aliyun.oss.OSSClient::multipartOperation:com.aliyun.oss.internal.OSSMultipartOperation" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::abortMultipartUpload(com.aliyun.oss.model.AbortMultipartUploadRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::completeMultipartUpload(com.aliyun.oss.model.CompleteMultipartUploadRequest):com.aliyun.oss.model.CompleteMultipartUploadResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::initiateMultipartUpload(com.aliyun.oss.model.InitiateMultipartUploadRequest):com.aliyun.oss.model.InitiateMultipartUploadResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::listMultipartUploads(com.aliyun.oss.model.ListMultipartUploadsRequest):com.aliyun.oss.model.MultipartUploadListing" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::listParts(com.aliyun.oss.model.ListPartsRequest):com.aliyun.oss.model.PartListing" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::uploadPart(com.aliyun.oss.model.UploadPartRequest):com.aliyun.oss.model.UploadPartResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::uploadPartCopy(com.aliyun.oss.model.UploadPartCopyRequest):com.aliyun.oss.model.UploadPartCopyResult" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.internal.OSSObjectOperation" />
+			<role name="Adapter" element="com.aliyun.oss.OSSClient" />
+			<role name="adaptee" element="com.aliyun.oss.OSSClient::objectOperation:com.aliyun.oss.internal.OSSObjectOperation" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::putObject(com.aliyun.oss.model.PutObjectRequest):com.aliyun.oss.model.PutObjectResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::putObject(java.net.URL, java.io.InputStream, long, java.util.Map, boolean):com.aliyun.oss.model.PutObjectResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::copyObject(com.aliyun.oss.model.CopyObjectRequest):com.aliyun.oss.model.CopyObjectResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getObject(com.aliyun.oss.model.GetObjectRequest, java.io.File):com.aliyun.oss.model.ObjectMetadata" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getObject(com.aliyun.oss.model.GetObjectRequest):com.aliyun.oss.model.OSSObject" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getObject(java.net.URL, java.util.Map):com.aliyun.oss.model.OSSObject" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::selectObject(com.aliyun.oss.model.SelectObjectRequest):com.aliyun.oss.model.OSSObject" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getSimplifiedObjectMeta(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.SimplifiedObjectMeta" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::createSelectObjectMetadata(com.aliyun.oss.model.CreateSelectObjectMetadataRequest):com.aliyun.oss.model.SelectObjectMetadata" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getObjectMetadata(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.ObjectMetadata" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::headObject(com.aliyun.oss.model.HeadObjectRequest):com.aliyun.oss.model.ObjectMetadata" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::appendObject(com.aliyun.oss.model.AppendObjectRequest):com.aliyun.oss.model.AppendObjectResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteObject(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteVersion(com.aliyun.oss.model.DeleteVersionRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteObjects(com.aliyun.oss.model.DeleteObjectsRequest):com.aliyun.oss.model.DeleteObjectsResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteVersions(com.aliyun.oss.model.DeleteVersionsRequest):com.aliyun.oss.model.DeleteVersionsResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::doesObjectExist(java.lang.String, java.lang.String, boolean):boolean" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::doesObjectExist(com.aliyun.oss.model.GenericRequest):boolean" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::doesObjectExist(com.aliyun.oss.model.GenericRequest, boolean):boolean" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setObjectAcl(com.aliyun.oss.model.SetObjectAclRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getObjectAcl(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.ObjectAcl" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::restoreObject(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.RestoreObjectResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::restoreObject(com.aliyun.oss.model.RestoreObjectRequest):com.aliyun.oss.model.RestoreObjectResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::setObjectTagging(com.aliyun.oss.model.SetObjectTaggingRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getObjectTagging(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.TagSet" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteObjectTagging(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::createSymlink(com.aliyun.oss.model.CreateSymlinkRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getSymlink(com.aliyun.oss.model.GenericRequest):com.aliyun.oss.model.OSSSymlink" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::processObject(com.aliyun.oss.model.ProcessObjectRequest):com.aliyun.oss.model.GenericResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::createDirectory(com.aliyun.oss.model.CreateDirectoryRequest):com.aliyun.oss.model.VoidResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::deleteDirectory(com.aliyun.oss.model.DeleteDirectoryRequest):com.aliyun.oss.model.DeleteDirectoryResult" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::renameObject(com.aliyun.oss.model.RenameObjectRequest):com.aliyun.oss.model.VoidResult" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.common.comm.HttpRequestFactory" />
+			<role name="Adapter" element="com.aliyun.oss.common.comm.DefaultServiceClient" />
+			<role name="adaptee" element="com.aliyun.oss.common.comm.DefaultServiceClient::httpRequestFactory:com.aliyun.oss.common.comm.HttpRequestFactory" />
+			<role name="Request()" element="com.aliyun.oss.common.comm.DefaultServiceClient::sendRequestCore(com.aliyun.oss.common.comm.ServiceClient$Request, com.aliyun.oss.common.comm.ExecutionContext):com.aliyun.oss.common.comm.ResponseMessage" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.common.auth.ProfileConfigFile" />
+			<role name="Adapter" element="com.aliyun.oss.common.auth.ProfileCredentialsProvider" />
+			<role name="adaptee" element="com.aliyun.oss.common.auth.ProfileCredentialsProvider::profilesConfigFile:com.aliyun.oss.common.auth.ProfileConfigFile" />
+			<role name="Request()" element="com.aliyun.oss.common.auth.ProfileCredentialsProvider::getCredentials():com.aliyun.oss.common.auth.Credentials" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.common.auth.BasicCredentials" />
+			<role name="Adapter" element="com.aliyun.oss.common.auth.CustomSessionCredentialsProvider" />
+			<role name="adaptee" element="com.aliyun.oss.common.auth.CustomSessionCredentialsProvider::credentials:com.aliyun.oss.common.auth.BasicCredentials" />
+			<role name="Request()" element="com.aliyun.oss.common.auth.CustomSessionCredentialsProvider::getCredentials():com.aliyun.oss.common.auth.Credentials" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.common.auth.BasicCredentials" />
+			<role name="Adapter" element="com.aliyun.oss.common.auth.EcsRamRoleCredentialsProvider" />
+			<role name="adaptee" element="com.aliyun.oss.common.auth.EcsRamRoleCredentialsProvider::credentials:com.aliyun.oss.common.auth.BasicCredentials" />
+			<role name="Request()" element="com.aliyun.oss.common.auth.EcsRamRoleCredentialsProvider::getCredentials():com.aliyun.oss.common.auth.Credentials" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.common.auth.BasicCredentials" />
+			<role name="Adapter" element="com.aliyun.oss.common.auth.STSAssumeRoleSessionCredentialsProvider" />
+			<role name="adaptee" element="com.aliyun.oss.common.auth.STSAssumeRoleSessionCredentialsProvider::credentials:com.aliyun.oss.common.auth.BasicCredentials" />
+			<role name="Request()" element="com.aliyun.oss.common.auth.STSAssumeRoleSessionCredentialsProvider::getCredentials():com.aliyun.oss.common.auth.Credentials" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.common.auth.BasicCredentials" />
+			<role name="Adapter" element="com.aliyun.oss.common.auth.STSKeyPairSessionCredentialsProvider" />
+			<role name="adaptee" element="com.aliyun.oss.common.auth.STSKeyPairSessionCredentialsProvider::sessionCredentials:com.aliyun.oss.common.auth.BasicCredentials" />
+			<role name="Request()" element="com.aliyun.oss.common.auth.STSKeyPairSessionCredentialsProvider::getCredentials():com.aliyun.oss.common.auth.Credentials" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.common.auth.Credentials" />
+			<role name="Adapter" element="com.aliyun.oss.common.auth.DefaultCredentialProvider" />
+			<role name="adaptee" element="com.aliyun.oss.common.auth.DefaultCredentialProvider::creds:com.aliyun.oss.common.auth.Credentials" />
+			<role name="Request()" element="com.aliyun.oss.common.auth.DefaultCredentialProvider::setCredentials(com.aliyun.oss.common.auth.Credentials):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.common.auth.Credentials" />
+			<role name="Adapter" element="com.aliyun.oss.internal.OSSRequestSigner" />
+			<role name="adaptee" element="com.aliyun.oss.internal.OSSRequestSigner::creds:com.aliyun.oss.common.auth.Credentials" />
+			<role name="Request()" element="com.aliyun.oss.internal.OSSRequestSigner::sign(com.aliyun.oss.common.comm.RequestMessage):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.common.utils.IniEditor$OptionFormat" />
+			<role name="Adapter" element="com.aliyun.oss.common.utils.IniEditor$Option" />
+			<role name="adaptee" element="com.aliyun.oss.common.utils.IniEditor$Option::format:com.aliyun.oss.common.utils.IniEditor$OptionFormat" />
+			<role name="Request()" element="com.aliyun.oss.common.utils.IniEditor$Option::toString():java.lang.String" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.common.auth.CustomSessionCredentialsFetcher" />
+			<role name="Adapter" element="com.aliyun.oss.common.auth.CustomSessionCredentialsProvider" />
+			<role name="adaptee" element="com.aliyun.oss.common.auth.CustomSessionCredentialsProvider::fetcher:com.aliyun.oss.common.auth.CustomSessionCredentialsFetcher" />
+			<role name="Request()" element="com.aliyun.oss.common.auth.CustomSessionCredentialsProvider::getCredentials():com.aliyun.oss.common.auth.Credentials" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.common.auth.EcsRamRoleCredentialsFetcher" />
+			<role name="Adapter" element="com.aliyun.oss.common.auth.EcsRamRoleCredentialsProvider" />
+			<role name="adaptee" element="com.aliyun.oss.common.auth.EcsRamRoleCredentialsProvider::fetcher:com.aliyun.oss.common.auth.EcsRamRoleCredentialsFetcher" />
+			<role name="Request()" element="com.aliyun.oss.common.auth.EcsRamRoleCredentialsProvider::getCredentials():com.aliyun.oss.common.auth.Credentials" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.internal.OSSUploadOperation" />
+			<role name="Adapter" element="com.aliyun.oss.OSSClient" />
+			<role name="adaptee" element="com.aliyun.oss.OSSClient::uploadOperation:com.aliyun.oss.internal.OSSUploadOperation" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::uploadFile(com.aliyun.oss.model.UploadFileRequest):com.aliyun.oss.model.UploadFileResult" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.common.comm.ServiceClient" />
+			<role name="Adapter" element="com.aliyun.oss.OSSClient" />
+			<role name="adaptee" element="com.aliyun.oss.OSSClient::serviceClient:com.aliyun.oss.common.comm.ServiceClient" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::generatePresignedUrl(com.aliyun.oss.model.GeneratePresignedUrlRequest):java.net.URL" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::shutdown():void" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::getConnectionPoolStats():java.lang.String" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.crypto.OSSDirect" />
+			<role name="Adapter" element="com.aliyun.oss.crypto.CryptoModuleBase" />
+			<role name="adaptee" element="com.aliyun.oss.crypto.CryptoModuleBase::ossDirect:com.aliyun.oss.crypto.OSSDirect" />
+			<role name="Request()" element="com.aliyun.oss.crypto.CryptoModuleBase::putObjectSecurely(com.aliyun.oss.model.PutObjectRequest):com.aliyun.oss.model.PutObjectResult" />
+			<role name="Request()" element="com.aliyun.oss.crypto.CryptoModuleBase::getObjectSecurely(com.aliyun.oss.model.GetObjectRequest):com.aliyun.oss.model.OSSObject" />
+			<role name="Request()" element="com.aliyun.oss.crypto.CryptoModuleBase::getObjectSecurely(com.aliyun.oss.model.GetObjectRequest, java.io.File):com.aliyun.oss.model.ObjectMetadata" />
+			<role name="Request()" element="com.aliyun.oss.crypto.CryptoModuleBase::initiateMultipartUploadSecurely(com.aliyun.oss.model.InitiateMultipartUploadRequest, com.aliyun.oss.crypto.MultipartUploadCryptoContext):com.aliyun.oss.model.InitiateMultipartUploadResult" />
+			<role name="Request()" element="com.aliyun.oss.crypto.CryptoModuleBase::uploadPartSecurely(com.aliyun.oss.model.UploadPartRequest, com.aliyun.oss.crypto.MultipartUploadCryptoContext):com.aliyun.oss.model.UploadPartResult" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.internal.OSSDownloadOperation" />
+			<role name="Adapter" element="com.aliyun.oss.OSSClient" />
+			<role name="adaptee" element="com.aliyun.oss.OSSClient::downloadOperation:com.aliyun.oss.internal.OSSDownloadOperation" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::downloadFile(com.aliyun.oss.model.DownloadFileRequest):com.aliyun.oss.model.DownloadFileResult" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.common.auth.CredentialsProvider" />
+			<role name="Adapter" element="com.aliyun.oss.OSSClient" />
+			<role name="adaptee" element="com.aliyun.oss.OSSClient::credsProvider:com.aliyun.oss.common.auth.CredentialsProvider" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::switchCredentials(com.aliyun.oss.common.auth.Credentials):void" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::generatePresignedUrl(com.aliyun.oss.model.GeneratePresignedUrlRequest):java.net.URL" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::calculatePostSignature(java.lang.String):java.lang.String" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.aliyun.oss.model.WebServiceRequest" />
+			<role name="Adapter" element="com.aliyun.oss.common.comm.ResponseProgressHandler" />
+			<role name="adaptee" element="com.aliyun.oss.common.comm.ResponseProgressHandler::originalRequest:com.aliyun.oss.model.WebServiceRequest" />
+			<role name="Request()" element="com.aliyun.oss.common.comm.ResponseProgressHandler::handle(com.aliyun.oss.common.comm.ResponseMessage):void" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator" />
+	<pattern name="Observer" />
+	<pattern name="State">
+		<instance>
+			<role name="Context" element="com.aliyun.oss.common.auth.DefaultCredentialProvider" />
+			<role name="State" element="com.aliyun.oss.common.auth.Credentials" />
+			<role name="state" element="com.aliyun.oss.common.auth.DefaultCredentialProvider::creds:com.aliyun.oss.common.auth.Credentials" />
+			<role name="Request()" element="com.aliyun.oss.common.auth.DefaultCredentialProvider::setCredentials(com.aliyun.oss.common.auth.Credentials):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="com.aliyun.oss.internal.OSSRequestSigner" />
+			<role name="State" element="com.aliyun.oss.common.auth.Credentials" />
+			<role name="state" element="com.aliyun.oss.internal.OSSRequestSigner::creds:com.aliyun.oss.common.auth.Credentials" />
+			<role name="Request()" element="com.aliyun.oss.internal.OSSRequestSigner::sign(com.aliyun.oss.common.comm.RequestMessage):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="com.aliyun.oss.OSSClient" />
+			<role name="State" element="com.aliyun.oss.common.comm.ServiceClient" />
+			<role name="state" element="com.aliyun.oss.OSSClient::serviceClient:com.aliyun.oss.common.comm.ServiceClient" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::shutdown():void" />
+		</instance>
+		<instance>
+			<role name="Context" element="com.aliyun.oss.OSSClient" />
+			<role name="State" element="com.aliyun.oss.common.auth.CredentialsProvider" />
+			<role name="state" element="com.aliyun.oss.OSSClient::credsProvider:com.aliyun.oss.common.auth.CredentialsProvider" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::switchCredentials(com.aliyun.oss.common.auth.Credentials):void" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::generatePresignedUrl(com.aliyun.oss.model.GeneratePresignedUrlRequest):java.net.URL" />
+			<role name="Request()" element="com.aliyun.oss.OSSClient::calculatePostSignature(java.lang.String):java.lang.String" />
+		</instance>
+		<instance>
+			<role name="Context" element="com.aliyun.oss.model.Grant" />
+			<role name="State" element="com.aliyun.oss.model.Grantee" />
+			<role name="state" element="com.aliyun.oss.model.Grant::grantee:com.aliyun.oss.model.Grantee" />
+			<role name="Request()" element="com.aliyun.oss.model.Grant::hashCode():int" />
+		</instance>
+		<instance>
+			<role name="Context" element="com.aliyun.oss.internal.OSSUploadOperationEncrypted" />
+			<role name="State" element="com.aliyun.oss.crypto.EncryptionMaterials" />
+			<role name="state" element="com.aliyun.oss.internal.OSSUploadOperationEncrypted::encryptionMaterials:com.aliyun.oss.crypto.EncryptionMaterials" />
+			<role name="Request()" element="com.aliyun.oss.internal.OSSUploadOperationEncrypted::loadUploadCheckPointWrap(com.aliyun.oss.internal.OSSUploadOperation$UploadCheckPoint, java.lang.String):void" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge">
+		<instance>
+			<role name="Abstraction" element="com.aliyun.oss.crypto.CryptoModuleBase" />
+			<role name="Implementor" element="com.aliyun.oss.crypto.CryptoScheme" />
+			<role name="implementor" element="com.aliyun.oss.crypto.CryptoModuleBase::contentCryptoScheme:com.aliyun.oss.crypto.CryptoScheme" />
+			<role name="Operation()" element="com.aliyun.oss.crypto.CryptoModuleBase::buildContentCryptoMaterials():com.aliyun.oss.crypto.ContentCryptoMaterial" />
+			<role name="Operation()" element="com.aliyun.oss.crypto.CryptoModuleBase::generateCEK():javax.crypto.SecretKey" />
+		</instance>
+		<instance>
+			<role name="Abstraction" element="com.aliyun.oss.crypto.CryptoModuleBase" />
+			<role name="Implementor" element="com.aliyun.oss.crypto.OSSDirect" />
+			<role name="implementor" element="com.aliyun.oss.crypto.CryptoModuleBase::ossDirect:com.aliyun.oss.crypto.OSSDirect" />
+			<role name="Operation()" element="com.aliyun.oss.crypto.CryptoModuleBase::putObjectSecurely(com.aliyun.oss.model.PutObjectRequest):com.aliyun.oss.model.PutObjectResult" />
+			<role name="Operation()" element="com.aliyun.oss.crypto.CryptoModuleBase::getObjectSecurely(com.aliyun.oss.model.GetObjectRequest):com.aliyun.oss.model.OSSObject" />
+			<role name="Operation()" element="com.aliyun.oss.crypto.CryptoModuleBase::getObjectSecurely(com.aliyun.oss.model.GetObjectRequest, java.io.File):com.aliyun.oss.model.ObjectMetadata" />
+			<role name="Operation()" element="com.aliyun.oss.crypto.CryptoModuleBase::initiateMultipartUploadSecurely(com.aliyun.oss.model.InitiateMultipartUploadRequest, com.aliyun.oss.crypto.MultipartUploadCryptoContext):com.aliyun.oss.model.InitiateMultipartUploadResult" />
+			<role name="Operation()" element="com.aliyun.oss.crypto.CryptoModuleBase::uploadPartSecurely(com.aliyun.oss.model.UploadPartRequest, com.aliyun.oss.crypto.MultipartUploadCryptoContext):com.aliyun.oss.model.UploadPartResult" />
+		</instance>
+		<instance>
+			<role name="Abstraction" element="com.aliyun.oss.crypto.CryptoModuleBase" />
+			<role name="Implementor" element="com.aliyun.oss.crypto.EncryptionMaterials" />
+			<role name="implementor" element="com.aliyun.oss.crypto.CryptoModuleBase::encryptionMaterials:com.aliyun.oss.crypto.EncryptionMaterials" />
+			<role name="Operation()" element="com.aliyun.oss.crypto.CryptoModuleBase::buildContentCryptoMaterials():com.aliyun.oss.crypto.ContentCryptoMaterial" />
+			<role name="Operation()" element="com.aliyun.oss.crypto.CryptoModuleBase::createContentMaterialFromMetadata(com.aliyun.oss.model.ObjectMetadata):com.aliyun.oss.crypto.ContentCryptoMaterial" />
+		</instance>
+		<instance>
+			<role name="Abstraction" element="com.aliyun.oss.internal.OSSOperation" />
+			<role name="Implementor" element="com.aliyun.oss.common.auth.CredentialsProvider" />
+			<role name="implementor" element="com.aliyun.oss.internal.OSSOperation::credsProvider:com.aliyun.oss.common.auth.CredentialsProvider" />
+			<role name="Operation()" element="com.aliyun.oss.internal.OSSOperation::createDefaultContext(com.aliyun.oss.HttpMethod, java.lang.String, java.lang.String, com.aliyun.oss.model.WebServiceRequest):com.aliyun.oss.common.comm.ExecutionContext" />
+		</instance>
+	</pattern>
+	<pattern name="Template Method">
+		<instance>
+			<role name="AbstractClass" element="com.aliyun.oss.common.auth.HttpCredentialsFetcher" />
+			<role name="TemplateMethod()" element="com.aliyun.oss.common.auth.HttpCredentialsFetcher::fetch():com.aliyun.oss.common.auth.Credentials" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="com.aliyun.oss.common.comm.ServiceClient" />
+			<role name="TemplateMethod()" element="com.aliyun.oss.common.comm.ServiceClient::sendRequestImpl(com.aliyun.oss.common.comm.RequestMessage, com.aliyun.oss.common.comm.ExecutionContext):com.aliyun.oss.common.comm.ResponseMessage" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="com.aliyun.oss.crypto.CryptoModuleBase" />
+			<role name="TemplateMethod()" element="com.aliyun.oss.crypto.CryptoModuleBase::wrapPutRequestWithCipher(com.aliyun.oss.model.PutObjectRequest, com.aliyun.oss.crypto.ContentCryptoMaterial):com.aliyun.oss.model.PutObjectRequest" />
+			<role name="TemplateMethod()" element="com.aliyun.oss.crypto.CryptoModuleBase::decipherWithMetadata(com.aliyun.oss.model.GetObjectRequest, long[], long[], com.aliyun.oss.model.OSSObject):com.aliyun.oss.model.OSSObject" />
+			<role name="TemplateMethod()" element="com.aliyun.oss.crypto.CryptoModuleBase::uploadPartSecurely(com.aliyun.oss.model.UploadPartRequest, com.aliyun.oss.crypto.MultipartUploadCryptoContext):com.aliyun.oss.model.UploadPartResult" />
+			<role name="TemplateMethod()" element="com.aliyun.oss.crypto.CryptoModuleBase::buildContentCryptoMaterials():com.aliyun.oss.crypto.ContentCryptoMaterial" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="com.aliyun.oss.crypto.CryptoScheme" />
+			<role name="TemplateMethod()" element="com.aliyun.oss.crypto.CryptoScheme::createCryptoCipher(javax.crypto.SecretKey, byte[], int, java.security.Provider):com.aliyun.oss.crypto.CryptoCipher" />
+			<role name="TemplateMethod()" element="com.aliyun.oss.crypto.CryptoScheme::fromCEKAlgo(java.lang.String):com.aliyun.oss.crypto.CryptoScheme" />
+		</instance>
+	</pattern>
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

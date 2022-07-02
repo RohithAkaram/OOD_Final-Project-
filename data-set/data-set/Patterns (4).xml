@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method" />
+	<pattern name="Prototype" />
+	<pattern name="Singleton">
+		<instance>
+			<role name="Singleton" element="com.github.kevinsawicki.http.HttpRequest$ConnectionFactory" />
+			<role name="uniqueInstance" element="com.github.kevinsawicki.http.HttpRequest$ConnectionFactory::DEFAULT:com.github.kevinsawicki.http.HttpRequest$ConnectionFactory" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="com.github.kevinsawicki.http.HttpRequest$UploadProgress" />
+			<role name="uniqueInstance" element="com.github.kevinsawicki.http.HttpRequest$UploadProgress::DEFAULT:com.github.kevinsawicki.http.HttpRequest$UploadProgress" />
+		</instance>
+	</pattern>
+	<pattern name="(Object)Adapter" />
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator" />
+	<pattern name="Observer" />
+	<pattern name="State">
+		<instance>
+			<role name="Context" element="com.github.kevinsawicki.http.HttpRequest" />
+			<role name="State" element="com.github.kevinsawicki.http.HttpRequest$ConnectionFactory" />
+			<role name="state" element="com.github.kevinsawicki.http.HttpRequest::CONNECTION_FACTORY:com.github.kevinsawicki.http.HttpRequest$ConnectionFactory" />
+			<role name="Request()" element="com.github.kevinsawicki.http.HttpRequest::createConnection():java.net.HttpURLConnection" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method">
+		<instance>
+			<role name="AbstractClass" element="com.github.kevinsawicki.http.HttpRequest$Operation" />
+			<role name="TemplateMethod()" element="com.github.kevinsawicki.http.HttpRequest$Operation::call():java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="com.github.kevinsawicki.http.ServerTestCase$RequestHandler" />
+			<role name="TemplateMethod()" element="com.github.kevinsawicki.http.ServerTestCase$RequestHandler::handle(java.lang.String, org.eclipse.jetty.server.Request, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse):void" />
+		</instance>
+	</pattern>
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

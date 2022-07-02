@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method">
+		<instance>
+			<role name="Creator" element="org.nanohttpd.protocols.http.tempfiles.ITempFileManager" />
+			<role name="FactoryMethod()" element="org.nanohttpd.protocols.http.tempfiles.ITempFileManager::createTempFile(java.lang.String):org.nanohttpd.protocols.http.tempfiles.ITempFile" />
+		</instance>
+		<instance>
+			<role name="Creator" element="org.nanohttpd.webserver.WebServerPluginInfo" />
+			<role name="FactoryMethod()" element="org.nanohttpd.webserver.WebServerPluginInfo::getWebServerPlugin(java.lang.String):org.nanohttpd.webserver.WebServerPlugin" />
+		</instance>
+		<instance>
+			<role name="Creator" element="org.nanohttpd.protocols.websockets.NanoWSD" />
+			<role name="FactoryMethod()" element="org.nanohttpd.protocols.websockets.NanoWSD::openWebSocket(org.nanohttpd.protocols.http.IHTTPSession):org.nanohttpd.protocols.websockets.WebSocket" />
+		</instance>
+	</pattern>
+	<pattern name="Prototype" />
+	<pattern name="Singleton" />
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="org.nanohttpd.protocols.http.NanoHTTPD" />
+			<role name="Adapter" element="org.nanohttpd.protocols.http.HTTPSession" />
+			<role name="adaptee" element="org.nanohttpd.protocols.http.HTTPSession::httpd:org.nanohttpd.protocols.http.NanoHTTPD" />
+			<role name="Request()" element="org.nanohttpd.protocols.http.HTTPSession::execute():void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="org.nanohttpd.protocols.http.content.CookieHandler" />
+			<role name="Adapter" element="org.nanohttpd.protocols.http.HTTPSession" />
+			<role name="adaptee" element="org.nanohttpd.protocols.http.HTTPSession::cookies:org.nanohttpd.protocols.http.content.CookieHandler" />
+			<role name="Request()" element="org.nanohttpd.protocols.http.HTTPSession::execute():void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="org.nanohttpd.protocols.http.request.Method" />
+			<role name="Adapter" element="org.nanohttpd.protocols.http.HTTPSession" />
+			<role name="adaptee" element="org.nanohttpd.protocols.http.HTTPSession::method:org.nanohttpd.protocols.http.request.Method" />
+			<role name="Request()" element="org.nanohttpd.protocols.http.HTTPSession::execute():void" />
+			<role name="Request()" element="org.nanohttpd.protocols.http.HTTPSession::parseBody(java.util.Map):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="org.nanohttpd.samples.websockets.DebugWebSocketServer" />
+			<role name="Adapter" element="org.nanohttpd.samples.websockets.DebugWebSocketServer$DebugWebSocket" />
+			<role name="adaptee" element="org.nanohttpd.samples.websockets.DebugWebSocketServer$DebugWebSocket::server:org.nanohttpd.samples.websockets.DebugWebSocketServer" />
+			<role name="Request()" element="org.nanohttpd.samples.websockets.DebugWebSocketServer$DebugWebSocket::onClose(org.nanohttpd.protocols.websockets.CloseCode, java.lang.String, boolean):void" />
+			<role name="Request()" element="org.nanohttpd.samples.websockets.DebugWebSocketServer$DebugWebSocket::onPong(org.nanohttpd.protocols.websockets.WebSocketFrame):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="org.nanohttpd.protocols.http.tempfiles.ITempFileManager" />
+			<role name="Adapter" element="org.nanohttpd.protocols.http.HTTPSession" />
+			<role name="adaptee" element="org.nanohttpd.protocols.http.HTTPSession::tempFileManager:org.nanohttpd.protocols.http.tempfiles.ITempFileManager" />
+			<role name="Request()" element="org.nanohttpd.protocols.http.HTTPSession::execute():void" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator" />
+	<pattern name="Observer" />
+	<pattern name="State">
+		<instance>
+			<role name="Context" element="org.nanohttpd.fileupload.NanoFileUpload$NanoHttpdContext" />
+			<role name="State" element="org.nanohttpd.protocols.http.IHTTPSession" />
+			<role name="state" element="org.nanohttpd.fileupload.NanoFileUpload$NanoHttpdContext::session:org.nanohttpd.protocols.http.IHTTPSession" />
+			<role name="Request()" element="org.nanohttpd.fileupload.NanoFileUpload$NanoHttpdContext::contentLength():long" />
+			<role name="Request()" element="org.nanohttpd.fileupload.NanoFileUpload$NanoHttpdContext::getContentType():java.lang.String" />
+			<role name="Request()" element="org.nanohttpd.fileupload.NanoFileUpload$NanoHttpdContext::getInputStream():java.io.InputStream" />
+		</instance>
+		<instance>
+			<role name="Context" element="org.nanohttpd.router.RouterNanoHTTPD$UriRouter" />
+			<role name="State" element="org.nanohttpd.router.RouterNanoHTTPD$IRoutePrioritizer" />
+			<role name="state" element="org.nanohttpd.router.RouterNanoHTTPD$UriRouter::routePrioritizer:org.nanohttpd.router.RouterNanoHTTPD$IRoutePrioritizer" />
+			<role name="Request()" element="org.nanohttpd.router.RouterNanoHTTPD$UriRouter::process(org.nanohttpd.protocols.http.IHTTPSession):org.nanohttpd.protocols.http.response.Response" />
+			<role name="Request()" element="org.nanohttpd.router.RouterNanoHTTPD$UriRouter::addRoute(java.lang.String, int, java.lang.Class, java.lang.Object[]):void" />
+			<role name="Request()" element="org.nanohttpd.router.RouterNanoHTTPD$UriRouter::removeRoute(java.lang.String):void" />
+			<role name="Request()" element="org.nanohttpd.router.RouterNanoHTTPD$UriRouter::setNotImplemented(java.lang.Class):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="org.nanohttpd.protocols.http.HTTPSession" />
+			<role name="State" element="org.nanohttpd.protocols.http.tempfiles.ITempFileManager" />
+			<role name="state" element="org.nanohttpd.protocols.http.HTTPSession::tempFileManager:org.nanohttpd.protocols.http.tempfiles.ITempFileManager" />
+			<role name="Request()" element="org.nanohttpd.protocols.http.HTTPSession::execute():void" />
+			<role name="Request()" element="org.nanohttpd.protocols.http.HTTPSession::getTmpBucket():java.io.RandomAccessFile" />
+			<role name="Request()" element="org.nanohttpd.protocols.http.HTTPSession::saveTmpFile(java.nio.ByteBuffer, int, int, java.lang.String):java.lang.String" />
+		</instance>
+		<instance>
+			<role name="Context" element="org.nanohttpd.protocols.http.response.Response" />
+			<role name="State" element="org.nanohttpd.protocols.http.response.IStatus" />
+			<role name="state" element="org.nanohttpd.protocols.http.response.Response::status:org.nanohttpd.protocols.http.response.IStatus" />
+			<role name="Request()" element="org.nanohttpd.protocols.http.response.Response::send(java.io.OutputStream):void" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge">
+		<instance>
+			<role name="Abstraction" element="org.nanohttpd.protocols.http.NanoHTTPD" />
+			<role name="Implementor" element="org.nanohttpd.util.IHandler" />
+			<role name="implementor" element="org.nanohttpd.protocols.http.NanoHTTPD::httpHandler:org.nanohttpd.util.IHandler" />
+			<role name="Operation()" element="org.nanohttpd.protocols.http.NanoHTTPD::handle(org.nanohttpd.protocols.http.IHTTPSession):org.nanohttpd.protocols.http.response.Response" />
+		</instance>
+		<instance>
+			<role name="Abstraction" element="org.nanohttpd.protocols.http.NanoHTTPD" />
+			<role name="Implementor" element="org.nanohttpd.protocols.http.threading.IAsyncRunner" />
+			<role name="implementor" element="org.nanohttpd.protocols.http.NanoHTTPD::asyncRunner:org.nanohttpd.protocols.http.threading.IAsyncRunner" />
+			<role name="Operation()" element="org.nanohttpd.protocols.http.NanoHTTPD::stop():void" />
+		</instance>
+	</pattern>
+	<pattern name="Template Method">
+		<instance>
+			<role name="AbstractClass" element="org.nanohttpd.junit.protocols.http.integration.IntegrationTestBase" />
+			<role name="TemplateMethod()" element="org.nanohttpd.junit.protocols.http.integration.IntegrationTestBase::setUp():void" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="org.nanohttpd.router.RouterNanoHTTPD$DefaultHandler" />
+			<role name="TemplateMethod()" element="org.nanohttpd.router.RouterNanoHTTPD$DefaultHandler::get(org.nanohttpd.router.RouterNanoHTTPD$UriResource, java.util.Map, org.nanohttpd.protocols.http.IHTTPSession):org.nanohttpd.protocols.http.response.Response" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="org.nanohttpd.router.RouterNanoHTTPD$DefaultStreamHandler" />
+			<role name="TemplateMethod()" element="org.nanohttpd.router.RouterNanoHTTPD$DefaultStreamHandler::get(org.nanohttpd.router.RouterNanoHTTPD$UriResource, java.util.Map, org.nanohttpd.protocols.http.IHTTPSession):org.nanohttpd.protocols.http.response.Response" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="org.nanohttpd.protocols.websockets.NanoWSD" />
+			<role name="TemplateMethod()" element="org.nanohttpd.protocols.websockets.NanoWSD::handleWebSocket(org.nanohttpd.protocols.http.IHTTPSession):org.nanohttpd.protocols.http.response.Response" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="org.nanohttpd.protocols.websockets.WebSocket" />
+			<role name="TemplateMethod()" element="org.nanohttpd.protocols.websockets.WebSocket::doClose(org.nanohttpd.protocols.websockets.CloseCode, java.lang.String, boolean):void" />
+			<role name="TemplateMethod()" element="org.nanohttpd.protocols.websockets.WebSocket::handleFrameFragment(org.nanohttpd.protocols.websockets.WebSocketFrame):void" />
+			<role name="TemplateMethod()" element="org.nanohttpd.protocols.websockets.WebSocket::handleWebsocketFrame(org.nanohttpd.protocols.websockets.WebSocketFrame):void" />
+			<role name="TemplateMethod()" element="org.nanohttpd.protocols.websockets.WebSocket::readWebsocket():void" />
+		</instance>
+	</pattern>
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

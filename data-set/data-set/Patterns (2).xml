@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method">
+		<instance>
+			<role name="Creator" element="org.kohsuke.github.connector.GitHubConnector" />
+			<role name="FactoryMethod()" element="org.kohsuke.github.connector.GitHubConnector::send(org.kohsuke.github.connector.GitHubConnectorRequest):org.kohsuke.github.connector.GitHubConnectorResponse" />
+		</instance>
+		<instance>
+			<role name="Creator" element="org.kohsuke.github.PagedIterable" />
+			<role name="FactoryMethod()" element="org.kohsuke.github.PagedIterable::_iterator(int):org.kohsuke.github.PagedIterator" />
+		</instance>
+	</pattern>
+	<pattern name="Prototype" />
+	<pattern name="Singleton">
+		<instance>
+			<role name="Singleton" element="org.kohsuke.github.authorization.AuthorizationProvider" />
+			<role name="uniqueInstance" element="org.kohsuke.github.authorization.AuthorizationProvider::ANONYMOUS:org.kohsuke.github.authorization.AuthorizationProvider" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="org.kohsuke.github.GHRateLimit$UnknownLimitRecord" />
+			<role name="uniqueInstance" element="org.kohsuke.github.GHRateLimit$UnknownLimitRecord::DEFAULT:org.kohsuke.github.GHRateLimit$UnknownLimitRecord" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="org.kohsuke.github.GHRateLimit" />
+			<role name="uniqueInstance" element="org.kohsuke.github.GHRateLimit::DEFAULT:org.kohsuke.github.GHRateLimit" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="org.kohsuke.github.GitHubConnectorResponseErrorHandler" />
+			<role name="uniqueInstance" element="org.kohsuke.github.GitHubConnectorResponseErrorHandler::STATUS_HTTP_BAD_REQUEST_OR_GREATER:org.kohsuke.github.GitHubConnectorResponseErrorHandler" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="org.kohsuke.github.RateLimitChecker" />
+			<role name="uniqueInstance" element="org.kohsuke.github.RateLimitChecker::NONE:org.kohsuke.github.RateLimitChecker" />
+		</instance>
+	</pattern>
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="org.kohsuke.github.GitHub" />
+			<role name="Adapter" element="org.kohsuke.github.PagedSearchIterable" />
+			<role name="adaptee" element="org.kohsuke.github.PagedSearchIterable::root:org.kohsuke.github.GitHub" />
+			<role name="Request()" element="org.kohsuke.github.PagedSearchIterable::_iterator(int):org.kohsuke.github.PagedIterator" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="org.kohsuke.github.extras.okhttp3.ObsoleteUrlFactory" />
+			<role name="Adapter" element="org.kohsuke.github.extras.okhttp3.OkHttpConnector" />
+			<role name="adaptee" element="org.kohsuke.github.extras.okhttp3.OkHttpConnector::urlFactory:org.kohsuke.github.extras.okhttp3.ObsoleteUrlFactory" />
+			<role name="Request()" element="org.kohsuke.github.extras.okhttp3.OkHttpConnector::connect(java.net.URL):java.net.HttpURLConnection" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="org.kohsuke.github.GitHub" />
+			<role name="Adapter" element="org.kohsuke.github.GitHub$LoginLoadingUserAuthorizationProvider" />
+			<role name="adaptee" element="org.kohsuke.github.GitHub$LoginLoadingUserAuthorizationProvider::gitHub:org.kohsuke.github.GitHub" />
+			<role name="Request()" element="org.kohsuke.github.GitHub$LoginLoadingUserAuthorizationProvider::getLogin():java.lang.String" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator">
+		<instance>
+			<role name="Component" element="org.kohsuke.github.HttpConnector" />
+			<role name="Decorator" element="org.kohsuke.github.extras.ImpatientHttpConnector" />
+			<role name="component" element="org.kohsuke.github.extras.ImpatientHttpConnector::base:org.kohsuke.github.HttpConnector" />
+			<role name="Operation()" element="org.kohsuke.github.extras.ImpatientHttpConnector::connect(java.net.URL):java.net.HttpURLConnection" />
+		</instance>
+		<instance>
+			<role name="Component" element="org.kohsuke.github.HttpConnector" />
+			<role name="Decorator" element="org.kohsuke.github.internal.GitHubConnectorHttpConnectorAdapter" />
+			<role name="component" element="org.kohsuke.github.internal.GitHubConnectorHttpConnectorAdapter::httpConnector:org.kohsuke.github.HttpConnector" />
+			<role name="Operation()" element="org.kohsuke.github.internal.GitHubConnectorHttpConnectorAdapter::connect(java.net.URL):java.net.HttpURLConnection" />
+		</instance>
+	</pattern>
+	<pattern name="Observer" />
+	<pattern name="State">
+		<instance>
+			<role name="Context" element="org.kohsuke.github.connector.GitHubConnectorResponseHttpUrlConnectionAdapter" />
+			<role name="State" element="org.kohsuke.github.connector.GitHubConnectorResponse" />
+			<role name="state" element="org.kohsuke.github.connector.GitHubConnectorResponseHttpUrlConnectionAdapter::connectorResponse:org.kohsuke.github.connector.GitHubConnectorResponse" />
+			<role name="Request()" element="org.kohsuke.github.connector.GitHubConnectorResponseHttpUrlConnectionAdapter::getErrorStream():java.io.InputStream" />
+			<role name="Request()" element="org.kohsuke.github.connector.GitHubConnectorResponseHttpUrlConnectionAdapter::getInputStream():java.io.InputStream" />
+		</instance>
+		<instance>
+			<role name="State" element="org.kohsuke.github.GitHubAbuseLimitHandler" />
+			<role name="Context" element="org.kohsuke.github.GitHubClient" />
+			<role name="state" element="org.kohsuke.github.GitHubClient::abuseLimitHandler:org.kohsuke.github.GitHubAbuseLimitHandler" />
+			<role name="Request()" element="org.kohsuke.github.GitHubClient::detectKnownErrors(org.kohsuke.github.connector.GitHubConnectorResponse, org.kohsuke.github.GitHubRequest, boolean):void" />
+		</instance>
+		<instance>
+			<role name="State" element="org.kohsuke.github.GitHubRateLimitHandler" />
+			<role name="Context" element="org.kohsuke.github.GitHubClient" />
+			<role name="state" element="org.kohsuke.github.GitHubClient::rateLimitHandler:org.kohsuke.github.GitHubRateLimitHandler" />
+			<role name="Request()" element="org.kohsuke.github.GitHubClient::detectKnownErrors(org.kohsuke.github.connector.GitHubConnectorResponse, org.kohsuke.github.GitHubRequest, boolean):void" />
+		</instance>
+		<instance>
+			<role name="State" element="org.kohsuke.github.authorization.AuthorizationProvider" />
+			<role name="Context" element="org.kohsuke.github.GitHubClient" />
+			<role name="state" element="org.kohsuke.github.GitHubClient::authorizationProvider:org.kohsuke.github.authorization.AuthorizationProvider" />
+			<role name="Request()" element="org.kohsuke.github.GitHubClient::getLogin():java.lang.String" />
+			<role name="Request()" element="org.kohsuke.github.GitHubClient::isAnonymous():boolean" />
+			<role name="Request()" element="org.kohsuke.github.GitHubClient::getEncodedAuthorization():java.lang.String" />
+		</instance>
+		<instance>
+			<role name="State" element="org.kohsuke.github.connector.GitHubConnector" />
+			<role name="Context" element="org.kohsuke.github.GitHubClient" />
+			<role name="state" element="org.kohsuke.github.GitHubClient::connector:org.kohsuke.github.connector.GitHubConnector" />
+			<role name="Request()" element="org.kohsuke.github.GitHubClient::sendRequest(, org.kohsuke.github.GitHubClient$BodyHandler):org.kohsuke.github.GitHubResponse" />
+		</instance>
+		<instance>
+			<role name="State" element="org.kohsuke.github.authorization.AuthorizationProvider" />
+			<role name="Context" element="org.kohsuke.github.GitHub$AuthorizationRefreshGitHubWrapper" />
+			<role name="state" element="org.kohsuke.github.GitHub$AuthorizationRefreshGitHubWrapper::authorizationProvider:org.kohsuke.github.authorization.AuthorizationProvider" />
+			<role name="Request()" element="org.kohsuke.github.GitHub$AuthorizationRefreshGitHubWrapper::createRequest():org.kohsuke.github.Requester" />
+		</instance>
+		<instance>
+			<role name="Context" element="org.kohsuke.github.GitHub$LoginLoadingUserAuthorizationProvider" />
+			<role name="State" element="org.kohsuke.github.authorization.AuthorizationProvider" />
+			<role name="state" element="org.kohsuke.github.GitHub$LoginLoadingUserAuthorizationProvider::authorizationProvider:org.kohsuke.github.authorization.AuthorizationProvider" />
+			<role name="Request()" element="org.kohsuke.github.GitHub$LoginLoadingUserAuthorizationProvider::getEncodedAuthorization():java.lang.String" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method">
+		<instance>
+			<role name="AbstractClass" element="org.kohsuke.github.AbuseLimitHandler" />
+			<role name="TemplateMethod()" element="org.kohsuke.github.AbuseLimitHandler::onError(org.kohsuke.github.connector.GitHubConnectorResponse):void" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="org.kohsuke.github.connector.GitHubConnectorResponse$ByteArrayResponse" />
+			<role name="TemplateMethod()" element="org.kohsuke.github.connector.GitHubConnectorResponse$ByteArrayResponse::bodyStream():java.io.InputStream" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="org.kohsuke.github.extras.okhttp3.ObsoleteUrlFactory$DelegatingHttpsURLConnection" />
+			<role name="TemplateMethod()" element="org.kohsuke.github.extras.okhttp3.ObsoleteUrlFactory$DelegatingHttpsURLConnection::getCipherSuite():java.lang.String" />
+			<role name="TemplateMethod()" element="org.kohsuke.github.extras.okhttp3.ObsoleteUrlFactory$DelegatingHttpsURLConnection::getLocalCertificates():java.security.cert.Certificate[]" />
+			<role name="TemplateMethod()" element="org.kohsuke.github.extras.okhttp3.ObsoleteUrlFactory$DelegatingHttpsURLConnection::getServerCertificates():java.security.cert.Certificate[]" />
+			<role name="TemplateMethod()" element="org.kohsuke.github.extras.okhttp3.ObsoleteUrlFactory$DelegatingHttpsURLConnection::getPeerPrincipal():java.security.Principal" />
+			<role name="TemplateMethod()" element="org.kohsuke.github.extras.okhttp3.ObsoleteUrlFactory$DelegatingHttpsURLConnection::getLocalPrincipal():java.security.Principal" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="org.kohsuke.github.GHHook" />
+			<role name="TemplateMethod()" element="org.kohsuke.github.GHHook::ping():void" />
+			<role name="TemplateMethod()" element="org.kohsuke.github.GHHook::delete():void" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="org.kohsuke.github.GHHooks$Context" />
+			<role name="TemplateMethod()" element="org.kohsuke.github.GHHooks$Context::getHooks():java.util.List" />
+			<role name="TemplateMethod()" element="org.kohsuke.github.GHHooks$Context::getHook(int):org.kohsuke.github.GHHook" />
+			<role name="TemplateMethod()" element="org.kohsuke.github.GHHooks$Context::createHook(java.lang.String, java.util.Map, java.util.Collection, boolean):org.kohsuke.github.GHHook" />
+			<role name="TemplateMethod()" element="org.kohsuke.github.GHHooks$Context::deleteHook(int):void" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="org.kohsuke.github.PagedIterable" />
+			<role name="TemplateMethod()" element="org.kohsuke.github.PagedIterable::iterator():org.kohsuke.github.PagedIterator" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="org.kohsuke.github.RateLimitHandler" />
+			<role name="TemplateMethod()" element="org.kohsuke.github.RateLimitHandler::onError(org.kohsuke.github.connector.GitHubConnectorResponse):void" />
+		</instance>
+	</pattern>
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

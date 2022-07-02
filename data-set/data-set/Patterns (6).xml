@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method">
+		<instance>
+			<role name="Creator" element="com.notnoop.apns.ApnsService" />
+			<role name="FactoryMethod()" element="com.notnoop.apns.ApnsService::push(java.lang.String, java.lang.String, java.util.Date):com.notnoop.apns.EnhancedApnsNotification" />
+			<role name="FactoryMethod()" element="com.notnoop.apns.ApnsService::push(byte[], byte[], int):com.notnoop.apns.EnhancedApnsNotification" />
+		</instance>
+		<instance>
+			<role name="Creator" element="com.notnoop.apns.internal.ApnsConnection" />
+			<role name="FactoryMethod()" element="com.notnoop.apns.internal.ApnsConnection::copy():com.notnoop.apns.internal.ApnsConnection" />
+		</instance>
+		<instance>
+			<role name="Creator" element="com.notnoop.apns.ReconnectPolicy$Provided" />
+			<role name="FactoryMethod()" element="com.notnoop.apns.ReconnectPolicy$Provided::newObject():com.notnoop.apns.ReconnectPolicy" />
+		</instance>
+	</pattern>
+	<pattern name="Prototype" />
+	<pattern name="Singleton">
+		<instance>
+			<role name="Singleton" element="com.notnoop.apns.ApnsDelegate" />
+			<role name="uniqueInstance" element="com.notnoop.apns.ApnsDelegate::EMPTY:com.notnoop.apns.ApnsDelegate" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="com.notnoop.apns.ApnsServerExceptionDelegate" />
+			<role name="uniqueInstance" element="com.notnoop.apns.ApnsServerExceptionDelegate::EMPTY:com.notnoop.apns.ApnsServerExceptionDelegate" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="com.notnoop.apns.ApnsServerService" />
+			<role name="uniqueInstance" element="com.notnoop.apns.ApnsServerService::EMPTY:com.notnoop.apns.ApnsServerService" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="com.notnoop.apns.utils.Simulator.ApnsInputStream$Item" />
+			<role name="uniqueInstance" element="com.notnoop.apns.utils.Simulator.ApnsInputStream$Item::DEFAULT:com.notnoop.apns.utils.Simulator.ApnsInputStream$Item" />
+		</instance>
+	</pattern>
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="com.notnoop.apns.internal.ApnsFeedbackConnection" />
+			<role name="Adapter" element="com.notnoop.apns.internal.AbstractApnsService" />
+			<role name="adaptee" element="com.notnoop.apns.internal.AbstractApnsService::feedback:com.notnoop.apns.internal.ApnsFeedbackConnection" />
+			<role name="Request()" element="com.notnoop.apns.internal.AbstractApnsService::getInactiveDevices():java.util.Map" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.notnoop.apns.ReconnectPolicy" />
+			<role name="Adapter" element="com.notnoop.apns.internal.ApnsConnectionImpl" />
+			<role name="adaptee" element="com.notnoop.apns.internal.ApnsConnectionImpl::reconnectPolicy:com.notnoop.apns.ReconnectPolicy" />
+			<role name="Request()" element="com.notnoop.apns.internal.ApnsConnectionImpl::testConnection():void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.notnoop.apns.internal.ApnsConnection" />
+			<role name="Adapter" element="com.notnoop.apns.internal.ApnsServiceImpl" />
+			<role name="adaptee" element="com.notnoop.apns.internal.ApnsServiceImpl::connection:com.notnoop.apns.internal.ApnsConnection" />
+			<role name="Request()" element="com.notnoop.apns.internal.ApnsServiceImpl::push(com.notnoop.apns.ApnsNotification):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.notnoop.apns.ApnsServerService" />
+			<role name="Adapter" element="com.notnoop.apns.ApnsFeedbackServerSocket" />
+			<role name="adaptee" element="com.notnoop.apns.ApnsFeedbackServerSocket::requestDelegate:com.notnoop.apns.ApnsServerService" />
+			<role name="Request()" element="com.notnoop.apns.ApnsFeedbackServerSocket::handleSocket(java.net.Socket):void" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="com.notnoop.apns.ApnsServerService" />
+			<role name="Adapter" element="com.notnoop.apns.ApnsGatewayServerSocket" />
+			<role name="adaptee" element="com.notnoop.apns.ApnsGatewayServerSocket::apnsServerService:com.notnoop.apns.ApnsServerService" />
+			<role name="Request()" element="com.notnoop.apns.ApnsGatewayServerSocket::handleSocket(java.net.Socket):void" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator">
+		<instance>
+			<role name="Component" element="com.notnoop.apns.ApnsService" />
+			<role name="Decorator" element="com.notnoop.apns.internal.QueuedApnsService" />
+			<role name="component" element="com.notnoop.apns.internal.QueuedApnsService::service:com.notnoop.apns.ApnsService" />
+			<role name="Operation()" element="com.notnoop.apns.internal.QueuedApnsService::start():void" />
+			<role name="Operation()" element="com.notnoop.apns.internal.QueuedApnsService::stop():void" />
+			<role name="Operation()" element="com.notnoop.apns.internal.QueuedApnsService::getInactiveDevices():java.util.Map" />
+			<role name="Operation()" element="com.notnoop.apns.internal.QueuedApnsService::testConnection():void" />
+		</instance>
+		<instance>
+			<role name="Component" element="com.notnoop.apns.internal.ApnsConnection" />
+			<role name="Decorator" element="com.notnoop.apns.internal.ApnsPooledConnection" />
+			<role name="component" element="com.notnoop.apns.internal.ApnsPooledConnection::prototype:com.notnoop.apns.internal.ApnsConnection" />
+			<role name="Operation()" element="com.notnoop.apns.internal.ApnsPooledConnection::testConnection():void" />
+		</instance>
+	</pattern>
+	<pattern name="Observer" />
+	<pattern name="State">
+		<instance>
+			<role name="Context" element="com.notnoop.apns.integration.ApnsSimulatorTestBase" />
+			<role name="State" element="com.notnoop.apns.ApnsService" />
+			<role name="state" element="com.notnoop.apns.integration.ApnsSimulatorTestBase::service:com.notnoop.apns.ApnsService" />
+			<role name="Request()" element="com.notnoop.apns.integration.ApnsSimulatorTestBase::send(int):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="com.notnoop.apns.integration.ApnsSimulatorTestBase" />
+			<role name="State" element="com.notnoop.apns.ApnsDelegate" />
+			<role name="state" element="com.notnoop.apns.integration.ApnsSimulatorTestBase::delegate:com.notnoop.apns.ApnsDelegate" />
+			<role name="Request()" element="com.notnoop.apns.integration.ApnsSimulatorTestBase::assertDelegateSentCount(int):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="com.notnoop.apns.internal.ApnsConnectionImpl" />
+			<role name="State" element="com.notnoop.apns.ReconnectPolicy" />
+			<role name="state" element="com.notnoop.apns.internal.ApnsConnectionImpl::reconnectPolicy:com.notnoop.apns.ReconnectPolicy" />
+			<role name="Request()" element="com.notnoop.apns.internal.ApnsConnectionImpl::getOrCreateSocket(boolean):java.net.Socket" />
+			<role name="Request()" element="com.notnoop.apns.internal.ApnsConnectionImpl::copy():com.notnoop.apns.internal.ApnsConnectionImpl" />
+			<role name="Request()" element="com.notnoop.apns.internal.ApnsConnectionImpl::testConnection():void" />
+		</instance>
+		<instance>
+			<role name="Context" element="com.notnoop.apns.internal.ApnsConnectionImpl" />
+			<role name="State" element="com.notnoop.apns.ApnsDelegate" />
+			<role name="state" element="com.notnoop.apns.internal.ApnsConnectionImpl::delegate:com.notnoop.apns.ApnsDelegate" />
+			<role name="Request()" element="com.notnoop.apns.internal.ApnsConnectionImpl::sendMessage(com.notnoop.apns.ApnsNotification, boolean):void" />
+			<role name="Request()" element="com.notnoop.apns.internal.ApnsConnectionImpl::drainBuffer():void" />
+		</instance>
+		<instance>
+			<role name="Context" element="com.notnoop.apns.internal.ApnsServiceImpl" />
+			<role name="State" element="com.notnoop.apns.internal.ApnsConnection" />
+			<role name="state" element="com.notnoop.apns.internal.ApnsServiceImpl::connection:com.notnoop.apns.internal.ApnsConnection" />
+			<role name="Request()" element="com.notnoop.apns.internal.ApnsServiceImpl::push(com.notnoop.apns.ApnsNotification):void" />
+			<role name="Request()" element="com.notnoop.apns.internal.ApnsServiceImpl::testConnection():void" />
+		</instance>
+		<instance>
+			<role name="Context" element="com.notnoop.apns.internal.BatchApnsService" />
+			<role name="State" element="com.notnoop.apns.internal.ApnsConnection" />
+			<role name="state" element="com.notnoop.apns.internal.BatchApnsService::prototype:com.notnoop.apns.internal.ApnsConnection" />
+			<role name="Request()" element="com.notnoop.apns.internal.BatchApnsService::testConnection():void" />
+		</instance>
+		<instance>
+			<role name="Context" element="com.notnoop.apns.ApnsFeedbackServerSocket" />
+			<role name="State" element="com.notnoop.apns.ApnsServerService" />
+			<role name="state" element="com.notnoop.apns.ApnsFeedbackServerSocket::requestDelegate:com.notnoop.apns.ApnsServerService" />
+			<role name="Request()" element="com.notnoop.apns.ApnsFeedbackServerSocket::handleSocket(java.net.Socket):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="com.notnoop.apns.ApnsGatewayServerSocket" />
+			<role name="State" element="com.notnoop.apns.ApnsServerService" />
+			<role name="state" element="com.notnoop.apns.ApnsGatewayServerSocket::apnsServerService:com.notnoop.apns.ApnsServerService" />
+			<role name="Request()" element="com.notnoop.apns.ApnsGatewayServerSocket::handleSocket(java.net.Socket):void" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge" />
+	<pattern name="Template Method">
+		<instance>
+			<role name="AbstractClass" element="com.notnoop.apns.internal.AbstractApnsService" />
+			<role name="TemplateMethod()" element="com.notnoop.apns.internal.AbstractApnsService::push(java.lang.String, java.lang.String):com.notnoop.apns.EnhancedApnsNotification" />
+			<role name="TemplateMethod()" element="com.notnoop.apns.internal.AbstractApnsService::push(java.lang.String, java.lang.String, java.util.Date):com.notnoop.apns.EnhancedApnsNotification" />
+			<role name="TemplateMethod()" element="com.notnoop.apns.internal.AbstractApnsService::push(byte[], byte[]):com.notnoop.apns.EnhancedApnsNotification" />
+			<role name="TemplateMethod()" element="com.notnoop.apns.internal.AbstractApnsService::push(byte[], byte[], int):com.notnoop.apns.EnhancedApnsNotification" />
+			<role name="TemplateMethod()" element="com.notnoop.apns.internal.AbstractApnsService::push(java.util.Collection, java.lang.String):java.util.Collection" />
+			<role name="TemplateMethod()" element="com.notnoop.apns.internal.AbstractApnsService::push(java.util.Collection, java.lang.String, java.util.Date):java.util.Collection" />
+			<role name="TemplateMethod()" element="com.notnoop.apns.internal.AbstractApnsService::push(java.util.Collection, byte[]):java.util.Collection" />
+			<role name="TemplateMethod()" element="com.notnoop.apns.internal.AbstractApnsService::push(java.util.Collection, byte[], int):java.util.Collection" />
+		</instance>
+	</pattern>
+	<pattern name="Visitor" />
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+

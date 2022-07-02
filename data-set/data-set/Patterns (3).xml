@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method">
+		<instance>
+			<role name="Creator" element="graphql.execution.instrumentation.fieldvalidation.FieldValidationEnvironment" />
+			<role name="FactoryMethod()" element="graphql.execution.instrumentation.fieldvalidation.FieldValidationEnvironment::mkError(java.lang.String):graphql.GraphQLError" />
+			<role name="FactoryMethod()" element="graphql.execution.instrumentation.fieldvalidation.FieldValidationEnvironment::mkError(java.lang.String, graphql.execution.instrumentation.fieldvalidation.FieldAndArguments):graphql.GraphQLError" />
+		</instance>
+		<instance>
+			<role name="Creator" element="graphql.execution.instrumentation.Instrumentation" />
+			<role name="FactoryMethod()" element="graphql.execution.instrumentation.Instrumentation::beginExecution(graphql.execution.instrumentation.parameters.InstrumentationExecutionParameters):graphql.execution.instrumentation.InstrumentationContext" />
+			<role name="FactoryMethod()" element="graphql.execution.instrumentation.Instrumentation::beginParse(graphql.execution.instrumentation.parameters.InstrumentationExecutionParameters):graphql.execution.instrumentation.InstrumentationContext" />
+			<role name="FactoryMethod()" element="graphql.execution.instrumentation.Instrumentation::beginValidation(graphql.execution.instrumentation.parameters.InstrumentationValidationParameters):graphql.execution.instrumentation.InstrumentationContext" />
+			<role name="FactoryMethod()" element="graphql.execution.instrumentation.Instrumentation::beginExecuteOperation(graphql.execution.instrumentation.parameters.InstrumentationExecuteOperationParameters):graphql.execution.instrumentation.InstrumentationContext" />
+			<role name="FactoryMethod()" element="graphql.execution.instrumentation.Instrumentation::beginExecutionStrategy(graphql.execution.instrumentation.parameters.InstrumentationExecutionStrategyParameters):graphql.execution.instrumentation.ExecutionStrategyInstrumentationContext" />
+			<role name="FactoryMethod()" element="graphql.execution.instrumentation.Instrumentation::beginField(graphql.execution.instrumentation.parameters.InstrumentationFieldParameters):graphql.execution.instrumentation.InstrumentationContext" />
+			<role name="FactoryMethod()" element="graphql.execution.instrumentation.Instrumentation::beginFieldFetch(graphql.execution.instrumentation.parameters.InstrumentationFieldFetchParameters):graphql.execution.instrumentation.InstrumentationContext" />
+		</instance>
+		<instance>
+			<role name="Creator" element="graphql.execution.nextgen.result.ExecutionResultNode" />
+			<role name="FactoryMethod()" element="graphql.execution.nextgen.result.ExecutionResultNode::withNewExecutionStepInfo(graphql.execution.ExecutionStepInfo):graphql.execution.nextgen.result.ExecutionResultNode" />
+			<role name="FactoryMethod()" element="graphql.execution.nextgen.result.ExecutionResultNode::withNewResolvedValue(graphql.execution.nextgen.result.ResolvedValue):graphql.execution.nextgen.result.ExecutionResultNode" />
+			<role name="FactoryMethod()" element="graphql.execution.nextgen.result.ExecutionResultNode::withNewErrors(java.util.List):graphql.execution.nextgen.result.ExecutionResultNode" />
+			<role name="FactoryMethod()" element="graphql.execution.nextgen.result.ExecutionResultNode::withNewChildren(java.util.List):graphql.execution.nextgen.result.ExecutionResultNode" />
+		</instance>
+		<instance>
+			<role name="Creator" element="graphql.GraphqlErrorException$BuilderBase" />
+			<role name="FactoryMethod()" element="graphql.GraphqlErrorException$BuilderBase::build():graphql.GraphqlErrorException" />
+		</instance>
+	</pattern>
+	<pattern name="Prototype" />
+	<pattern name="Singleton">
+		<instance>
+			<role name="Singleton" element="graphql.collect.ImmutableMapWithNullValues" />
+			<role name="uniqueInstance" element="graphql.collect.ImmutableMapWithNullValues::emptyMap:graphql.collect.ImmutableMapWithNullValues" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="graphql.execution.ExecutionIdProvider" />
+			<role name="uniqueInstance" element="graphql.execution.ExecutionIdProvider::DEFAULT_EXECUTION_ID_PROVIDER:graphql.execution.ExecutionIdProvider" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="graphql.execution.instrumentation.SimpleInstrumentation" />
+			<role name="uniqueInstance" element="graphql.execution.instrumentation.SimpleInstrumentation::INSTANCE:graphql.execution.instrumentation.SimpleInstrumentation" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="graphql.execution.nextgen.result.ResultNodeAdapter" />
+			<role name="uniqueInstance" element="graphql.execution.nextgen.result.ResultNodeAdapter::RESULT_NODE_ADAPTER:graphql.execution.nextgen.result.ResultNodeAdapter" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="graphql.execution.preparsed.NoOpPreparsedDocumentProvider" />
+			<role name="uniqueInstance" element="graphql.execution.preparsed.NoOpPreparsedDocumentProvider::INSTANCE:graphql.execution.preparsed.NoOpPreparsedDocumentProvider" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="graphql.execution.ResultPath" />
+			<role name="uniqueInstance" element="graphql.execution.ResultPath::ROOT_PATH:graphql.execution.ResultPath" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="graphql.execution.SimpleDataFetcherExceptionHandler" />
+			<role name="uniqueInstance" element="graphql.execution.SimpleDataFetcherExceptionHandler::defaultImpl:graphql.execution.SimpleDataFetcherExceptionHandler" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="graphql.execution.ValueUnboxer" />
+			<role name="uniqueInstance" element="graphql.execution.ValueUnboxer::DEFAULT:graphql.execution.ValueUnboxer" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="graphql.language.AstNodeAdapter" />
+			<role name="uniqueInstance" element="graphql.language.AstNodeAdapter::AST_NODE_ADAPTER:graphql.language.AstNodeAdapter" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="graphql.language.IgnoredChars" />
+			<role name="uniqueInstance" element="graphql.language.IgnoredChars::EMPTY:graphql.language.IgnoredChars" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="graphql.language.SourceLocation" />
+			<role name="uniqueInstance" element="graphql.language.SourceLocation::EMPTY:graphql.language.SourceLocation" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="graphql.parser.ParserOptions" />
+			<role name="uniqueInstance" element="graphql.parser.ParserOptions::defaultJvmParserOptions:graphql.parser.ParserOptions" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="graphql.parser.ParsingListener" />
+			<role name="uniqueInstance" element="graphql.parser.ParsingListener::NOOP:graphql.parser.ParsingListener" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="graphql.schema.GraphQLSchemaElementAdapter" />
+			<role name="uniqueInstance" element="graphql.schema.GraphQLSchemaElementAdapter::SCHEMA_ELEMENT_ADAPTER:graphql.schema.GraphQLSchemaElementAdapter" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="graphql.schema.idl.RuntimeWiring" />
+			<role name="uniqueInstance" element="graphql.schema.idl.RuntimeWiring::MOCKED_WIRING:graphql.schema.idl.RuntimeWiring" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="graphql.schema.InputValueWithState" />
+			<role name="uniqueInstance" element="graphql.schema.InputValueWithState::NOT_SET:graphql.schema.InputValueWithState" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="graphql.schema.visibility.DefaultGraphqlFieldVisibility" />
+			<role name="uniqueInstance" element="graphql.schema.visibility.DefaultGraphqlFieldVisibility::DEFAULT_FIELD_VISIBILITY:graphql.schema.visibility.DefaultGraphqlFieldVisibility" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="graphql.schema.visibility.NoIntrospectionGraphqlFieldVisibility" />
+			<role name="uniqueInstance" element="graphql.schema.visibility.NoIntrospectionGraphqlFieldVisibility::NO_INTROSPECTION_FIELD_VISIBILITY:graphql.schema.visibility.NoIntrospectionGraphqlFieldVisibility" />
+		</instance>
+	</pattern>
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="graphql.DirectivesUtil$DirectivesHolder" />
+			<role name="Adapter" element="graphql.schema.GraphQLFieldDefinition" />
+			<role name="adaptee" element="graphql.schema.GraphQLFieldDefinition::directivesHolder:graphql.DirectivesUtil$DirectivesHolder" />
+			<role name="Request()" element="graphql.schema.GraphQLFieldDefinition::getDirectives():java.util.List" />
+			<role name="Request()" element="graphql.schema.GraphQLFieldDefinition::getDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLFieldDefinition::getAllDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLFieldDefinition::getDirective(java.lang.String):graphql.schema.GraphQLDirective" />
+			<role name="Request()" element="graphql.schema.GraphQLFieldDefinition::getAppliedDirectives():java.util.List" />
+			<role name="Request()" element="graphql.schema.GraphQLFieldDefinition::getAllAppliedDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLFieldDefinition::getAppliedDirective(java.lang.String):graphql.schema.GraphQLAppliedDirective" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="graphql.DirectivesUtil$DirectivesHolder" />
+			<role name="Adapter" element="graphql.schema.GraphQLEnumType" />
+			<role name="adaptee" element="graphql.schema.GraphQLEnumType::directivesHolder:graphql.DirectivesUtil$DirectivesHolder" />
+			<role name="Request()" element="graphql.schema.GraphQLEnumType::getDirectives():java.util.List" />
+			<role name="Request()" element="graphql.schema.GraphQLEnumType::getDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLEnumType::getAllDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLEnumType::getDirective(java.lang.String):graphql.schema.GraphQLDirective" />
+			<role name="Request()" element="graphql.schema.GraphQLEnumType::getAppliedDirectives():java.util.List" />
+			<role name="Request()" element="graphql.schema.GraphQLEnumType::getAllAppliedDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLEnumType::getAppliedDirective(java.lang.String):graphql.schema.GraphQLAppliedDirective" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="graphql.DirectivesUtil$DirectivesHolder" />
+			<role name="Adapter" element="graphql.schema.GraphQLEnumValueDefinition" />
+			<role name="adaptee" element="graphql.schema.GraphQLEnumValueDefinition::directivesHolder:graphql.DirectivesUtil$DirectivesHolder" />
+			<role name="Request()" element="graphql.schema.GraphQLEnumValueDefinition::getDirectives():java.util.List" />
+			<role name="Request()" element="graphql.schema.GraphQLEnumValueDefinition::getDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLEnumValueDefinition::getAllDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLEnumValueDefinition::getDirective(java.lang.String):graphql.schema.GraphQLDirective" />
+			<role name="Request()" element="graphql.schema.GraphQLEnumValueDefinition::getAppliedDirectives():java.util.List" />
+			<role name="Request()" element="graphql.schema.GraphQLEnumValueDefinition::getAllAppliedDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLEnumValueDefinition::getAppliedDirective(java.lang.String):graphql.schema.GraphQLAppliedDirective" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="graphql.DirectivesUtil$DirectivesHolder" />
+			<role name="Adapter" element="graphql.schema.GraphQLInputObjectType" />
+			<role name="adaptee" element="graphql.schema.GraphQLInputObjectType::directives:graphql.DirectivesUtil$DirectivesHolder" />
+			<role name="Request()" element="graphql.schema.GraphQLInputObjectType::getDirectives():java.util.List" />
+			<role name="Request()" element="graphql.schema.GraphQLInputObjectType::getDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLInputObjectType::getAllDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLInputObjectType::getDirective(java.lang.String):graphql.schema.GraphQLDirective" />
+			<role name="Request()" element="graphql.schema.GraphQLInputObjectType::getAppliedDirectives():java.util.List" />
+			<role name="Request()" element="graphql.schema.GraphQLInputObjectType::getAllAppliedDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLInputObjectType::getAppliedDirective(java.lang.String):graphql.schema.GraphQLAppliedDirective" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="graphql.DirectivesUtil$DirectivesHolder" />
+			<role name="Adapter" element="graphql.schema.GraphQLInterfaceType" />
+			<role name="adaptee" element="graphql.schema.GraphQLInterfaceType::directivesHolder:graphql.DirectivesUtil$DirectivesHolder" />
+			<role name="Request()" element="graphql.schema.GraphQLInterfaceType::getDirectives():java.util.List" />
+			<role name="Request()" element="graphql.schema.GraphQLInterfaceType::getDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLInterfaceType::getAllDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLInterfaceType::getDirective(java.lang.String):graphql.schema.GraphQLDirective" />
+			<role name="Request()" element="graphql.schema.GraphQLInterfaceType::getAppliedDirectives():java.util.List" />
+			<role name="Request()" element="graphql.schema.GraphQLInterfaceType::getAllAppliedDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLInterfaceType::getAppliedDirective(java.lang.String):graphql.schema.GraphQLAppliedDirective" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="graphql.DirectivesUtil$DirectivesHolder" />
+			<role name="Adapter" element="graphql.schema.GraphQLObjectType" />
+			<role name="adaptee" element="graphql.schema.GraphQLObjectType::directivesHolder:graphql.DirectivesUtil$DirectivesHolder" />
+			<role name="Request()" element="graphql.schema.GraphQLObjectType::getDirectives():java.util.List" />
+			<role name="Request()" element="graphql.schema.GraphQLObjectType::getDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLObjectType::getAllDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLObjectType::getDirective(java.lang.String):graphql.schema.GraphQLDirective" />
+			<role name="Request()" element="graphql.schema.GraphQLObjectType::getAppliedDirectives():java.util.List" />
+			<role name="Request()" element="graphql.schema.GraphQLObjectType::getAllAppliedDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLObjectType::getAppliedDirective(java.lang.String):graphql.schema.GraphQLAppliedDirective" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="graphql.DirectivesUtil$DirectivesHolder" />
+			<role name="Adapter" element="graphql.schema.GraphQLScalarType" />
+			<role name="adaptee" element="graphql.schema.GraphQLScalarType::directivesHolder:graphql.DirectivesUtil$DirectivesHolder" />
+			<role name="Request()" element="graphql.schema.GraphQLScalarType::getDirectives():java.util.List" />
+			<role name="Request()" element="graphql.schema.GraphQLScalarType::getDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLScalarType::getAllDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLScalarType::getDirective(java.lang.String):graphql.schema.GraphQLDirective" />
+			<role name="Request()" element="graphql.schema.GraphQLScalarType::getAppliedDirectives():java.util.List" />
+			<role name="Request()" element="graphql.schema.GraphQLScalarType::getAllAppliedDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLScalarType::getAppliedDirective(java.lang.String):graphql.schema.GraphQLAppliedDirective" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="graphql.DirectivesUtil$DirectivesHolder" />
+			<role name="Adapter" element="graphql.schema.GraphQLUnionType" />
+			<role name="adaptee" element="graphql.schema.GraphQLUnionType::directives:graphql.DirectivesUtil$DirectivesHolder" />
+			<role name="Request()" element="graphql.schema.GraphQLUnionType::getDirectives():java.util.List" />
+			<role name="Request()" element="graphql.schema.GraphQLUnionType::getDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLUnionType::getAllDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLUnionType::getDirective(java.lang.String):graphql.schema.GraphQLDirective" />
+			<role name="Request()" element="graphql.schema.GraphQLUnionType::getAppliedDirectives():java.util.List" />
+			<role name="Request()" element="graphql.schema.GraphQLUnionType::getAllAppliedDirectivesByName():java.util.Map" />
+			<role name="Request()" element="graphql.schema.GraphQLUnionType::getAppliedDirective(java.lang.String):graphql.schema.GraphQLAppliedDirective" />
+		</instance>
+		<instance>
+			<role name="Adapter" element="graphql.schema.DataFetchingEnvironmentImpl" />
+			<role name="Adaptee" element="graphql.execution.MergedField" />
+			<role name="adaptee" element="graphql.schema.DataFetchingEnvironmentImpl::mergedField:graphql.execution.MergedField" />
+			<role name="Request()" element="graphql.schema.DataFetchingEnvironmentImpl::getFields():java.util.List" />
+			<role name="Request()" element="graphql.schema.DataFetchingEnvironmentImpl::getField():graphql.language.Field" />
+		</instance>
+		<instance>
+			<role name="Adapter" element="graphql.execution.nextgen.BatchedExecutionStrategy" />
+			<role name="Adaptee" element="graphql.execution.nextgen.ExecutionHelper" />
+			<role name="adaptee" element="graphql.execution.nextgen.BatchedExecutionStrategy::executionHelper:graphql.execution.nextgen.ExecutionHelper" />
+			<role name="Request()" element="graphql.execution.nextgen.BatchedExecutionStrategy::execute(graphql.execution.ExecutionContext):java.util.concurrent.CompletableFuture" />
+		</instance>
+		<instance>
+			<role name="Adapter" element="graphql.execution.nextgen.DefaultExecutionStrategy" />
+			<role name="Adaptee" element="graphql.execution.nextgen.ExecutionHelper" />
+			<role name="adaptee" element="graphql.execution.nextgen.DefaultExecutionStrategy::executionHelper:graphql.execution.nextgen.ExecutionHelper" />
+			<role name="Request()" element="graphql.execution.nextgen.DefaultExecutionStrategy::execute(graphql.execution.ExecutionContext):java.util.concurrent.CompletableFuture" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="graphql.language.Node" />
+			<role name="Adapter" element="graphql.schema.idl.errors.BaseError" />
+			<role name="adaptee" element="graphql.schema.idl.errors.BaseError::node:graphql.language.Node" />
+			<role name="Request()" element="graphql.schema.idl.errors.BaseError::getLocations():java.util.List" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="graphql.validation.ValidationContext" />
+			<role name="Adapter" element="graphql.validation.RulesVisitor" />
+			<role name="adaptee" element="graphql.validation.RulesVisitor::validationContext:graphql.validation.ValidationContext" />
+			<role name="Request()" element="graphql.validation.RulesVisitor::enter(graphql.language.Node, java.util.List):void" />
+			<role name="Request()" element="graphql.validation.RulesVisitor::leave(graphql.language.Node, java.util.List):void" />
+		</instance>
+		<instance>
+			<role name="Adapter" element="graphql.schema.idl.SchemaDirectiveWiringEnvironmentImpl" />
+			<role name="Adaptee" element="graphql.schema.GraphQLCodeRegistry$Builder" />
+			<role name="adaptee" element="graphql.schema.idl.SchemaDirectiveWiringEnvironmentImpl::codeRegistry:graphql.schema.GraphQLCodeRegistry$Builder" />
+			<role name="Request()" element="graphql.schema.idl.SchemaDirectiveWiringEnvironmentImpl::getFieldDataFetcher():graphql.schema.DataFetcher" />
+			<role name="Request()" element="graphql.schema.idl.SchemaDirectiveWiringEnvironmentImpl::setFieldDataFetcher(graphql.schema.DataFetcher):graphql.schema.GraphQLFieldDefinition" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="graphql.schema.GraphQLSchema" />
+			<role name="Adapter" element="graphql.schema.DataFetchingFieldSelectionSetImpl$SelectedFieldImpl" />
+			<role name="adaptee" element="graphql.schema.DataFetchingFieldSelectionSetImpl$SelectedFieldImpl::schema:graphql.schema.GraphQLSchema" />
+			<role name="Request()" element="graphql.schema.DataFetchingFieldSelectionSetImpl$SelectedFieldImpl::getObjectTypes():java.util.List" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="graphql.normalized.ExecutableNormalizedField" />
+			<role name="Adapter" element="graphql.schema.DataFetchingFieldSelectionSetImpl$SelectedFieldImpl" />
+			<role name="adaptee" element="graphql.schema.DataFetchingFieldSelectionSetImpl$SelectedFieldImpl::executableNormalizedField:graphql.normalized.ExecutableNormalizedField" />
+			<role name="Request()" element="graphql.schema.DataFetchingFieldSelectionSetImpl$SelectedFieldImpl::getName():java.lang.String" />
+			<role name="Request()" element="graphql.schema.DataFetchingFieldSelectionSetImpl$SelectedFieldImpl::getFieldDefinitions():java.util.List" />
+			<role name="Request()" element="graphql.schema.DataFetchingFieldSelectionSetImpl$SelectedFieldImpl::getType():graphql.schema.GraphQLOutputType" />
+			<role name="Request()" element="graphql.schema.DataFetchingFieldSelectionSetImpl$SelectedFieldImpl::getObjectTypes():java.util.List" />
+			<role name="Request()" element="graphql.schema.DataFetchingFieldSelectionSetImpl$SelectedFieldImpl::getObjectTypeNames():java.util.List" />
+			<role name="Request()" element="graphql.schema.DataFetchingFieldSelectionSetImpl$SelectedFieldImpl::getArguments():java.util.Map" />
+			<role name="Request()" element="graphql.schema.DataFetchingFieldSelectionSetImpl$SelectedFieldImpl::getLevel():int" />
+			<role name="Request()" element="graphql.schema.DataFetchingFieldSelectionSetImpl$SelectedFieldImpl::isConditional():boolean" />
+			<role name="Request()" element="graphql.schema.DataFetchingFieldSelectionSetImpl$SelectedFieldImpl::getAlias():java.lang.String" />
+			<role name="Request()" element="graphql.schema.DataFetchingFieldSelectionSetImpl$SelectedFieldImpl::getResultKey():java.lang.String" />
+		</instance>
+		<instance>
+			<role name="Adapter" element="graphql.schema.idl.SchemaDirectiveWiringSchemaGeneratorPostProcessing" />
+			<role name="Adaptee" element="graphql.schema.GraphQLCodeRegistry$Builder" />
+			<role name="adaptee" element="graphql.schema.idl.SchemaDirectiveWiringSchemaGeneratorPostProcessing::codeRegistryBuilder:graphql.schema.GraphQLCodeRegistry$Builder" />
+			<role name="Request()" element="graphql.schema.idl.SchemaDirectiveWiringSchemaGeneratorPostProcessing::process(graphql.schema.GraphQLSchema):graphql.schema.GraphQLSchema" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="graphql.analysis.QueryVisitorFieldEnvironment" />
+			<role name="Adapter" element="graphql.execution.instrumentation.fieldvalidation.FieldValidationSupport$FieldAndArgumentsImpl" />
+			<role name="adaptee" element="graphql.execution.instrumentation.fieldvalidation.FieldValidationSupport$FieldAndArgumentsImpl::traversalEnv:graphql.analysis.QueryVisitorFieldEnvironment" />
+			<role name="Request()" element="graphql.execution.instrumentation.fieldvalidation.FieldValidationSupport$FieldAndArgumentsImpl::getField():graphql.language.Field" />
+			<role name="Request()" element="graphql.execution.instrumentation.fieldvalidation.FieldValidationSupport$FieldAndArgumentsImpl::getFieldDefinition():graphql.schema.GraphQLFieldDefinition" />
+			<role name="Request()" element="graphql.execution.instrumentation.fieldvalidation.FieldValidationSupport$FieldAndArgumentsImpl::getParentType():graphql.schema.GraphQLCompositeType" />
+			<role name="Request()" element="graphql.execution.instrumentation.fieldvalidation.FieldValidationSupport$FieldAndArgumentsImpl::getArgumentValuesByName():java.util.Map" />
+			<role name="Request()" element="graphql.execution.instrumentation.fieldvalidation.FieldValidationSupport$FieldAndArgumentsImpl::getArgumentValue():java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="graphql.schema.GraphQLInputValueDefinition" />
+			<role name="Adapter" element="graphql.analysis.QueryVisitorFieldArgumentInputValueImpl" />
+			<role name="adaptee" element="graphql.analysis.QueryVisitorFieldArgumentInputValueImpl::inputValueDefinition:graphql.schema.GraphQLInputValueDefinition" />
+			<role name="Request()" element="graphql.analysis.QueryVisitorFieldArgumentInputValueImpl::getName():java.lang.String" />
+			<role name="Request()" element="graphql.analysis.QueryVisitorFieldArgumentInputValueImpl::getInputType():graphql.schema.GraphQLInputType" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="graphql.execution.preparsed.persisted.PersistedQueryCache" />
+			<role name="Adapter" element="graphql.execution.preparsed.persisted.PersistedQuerySupport" />
+			<role name="adaptee" element="graphql.execution.preparsed.persisted.PersistedQuerySupport::persistedQueryCache:graphql.execution.preparsed.persisted.PersistedQueryCache" />
+			<role name="Request()" element="graphql.execution.preparsed.persisted.PersistedQuerySupport::getDocument(graphql.ExecutionInput, java.util.function.Function):graphql.execution.preparsed.PreparsedDocumentEntry" />
+		</instance>
+	</pattern>
+	<pattern name="Command" />
+	<pattern name="Composite" />
+	<pattern name="Decorator">
+		<instance>
+			<role name="Component" element="graphql.schema.DataFetchingEnvironment" />
+			<role name="Decorator" element="graphql.schema.DelegatingDataFetchingEnvironment" />
+			<role name="component" element="graphql.schema.DelegatingDataFetchingEnvironment::delegateEnvironment:graphql.schema.DataFetchingEnvironment" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getArguments():java.util.Map" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::containsArgument(java.lang.String):boolean" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getGraphQlContext():graphql.GraphQLContext" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getFieldDefinition():graphql.schema.GraphQLFieldDefinition" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getFields():java.util.List" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getMergedField():graphql.execution.MergedField" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getField():graphql.language.Field" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getFieldType():graphql.schema.GraphQLOutputType" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getExecutionStepInfo():graphql.execution.ExecutionStepInfo" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getParentType():graphql.schema.GraphQLType" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getGraphQLSchema():graphql.schema.GraphQLSchema" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getFragmentsByName():java.util.Map" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getExecutionId():graphql.execution.ExecutionId" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getSelectionSet():graphql.schema.DataFetchingFieldSelectionSet" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getQueryDirectives():graphql.execution.directives.QueryDirectives" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getDataLoaderRegistry():org.dataloader.DataLoaderRegistry" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getLocale():java.util.Locale" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getCacheControl():graphql.cachecontrol.CacheControl" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getOperationDefinition():graphql.language.OperationDefinition" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getDocument():graphql.language.Document" />
+			<role name="Operation()" element="graphql.schema.DelegatingDataFetchingEnvironment::getVariables():java.util.Map" />
+		</instance>
+		<instance>
+			<role name="Component" element="graphql.schema.diff.reporting.DifferenceReporter" />
+			<role name="Decorator" element="graphql.schema.diff.SchemaDiff$CountingReporter" />
+			<role name="component" element="graphql.schema.diff.SchemaDiff$CountingReporter::delegate:graphql.schema.diff.reporting.DifferenceReporter" />
+			<role name="Operation()" element="graphql.schema.diff.SchemaDiff$CountingReporter::report(graphql.schema.diff.DiffEvent):void" />
+			<role name="Operation()" element="graphql.schema.diff.SchemaDiff$CountingReporter::onEnd():void" />
+		</instance>
+		<instance>
+			<role name="Component" element="graphql.schema.TypeResolver" />
+			<role name="Decorator" element="graphql.schema.TypeResolverProxy" />
+			<role name="component" element="graphql.schema.TypeResolverProxy::typeResolver:graphql.schema.TypeResolver" />
+			<role name="Operation()" element="graphql.schema.TypeResolverProxy::getType(graphql.TypeResolutionEnvironment):graphql.schema.GraphQLObjectType" />
+		</instance>
+	</pattern>
+	<pattern name="Observer" />
+	<pattern name="State">
+		<instance>
+			<role name="State" element="graphql.execution.ExecutionIdProvider" />
+			<role name="Context" element="graphql.GraphQL" />
+			<role name="state" element="graphql.GraphQL::idProvider:graphql.execution.ExecutionIdProvider" />
+			<role name="Request()" element="graphql.GraphQL::lambda$ensureInputHasId$9(java.lang.String, java.lang.String, java.lang.Object, graphql.ExecutionInput$Builder):void" />
+		</instance>
+		<instance>
+			<role name="State" element="graphql.execution.ExecutionIdProvider" />
+			<role name="Context" element="graphql.nextgen.GraphQL" />
+			<role name="state" element="graphql.nextgen.GraphQL::idProvider:graphql.execution.ExecutionIdProvider" />
+			<role name="Request()" element="graphql.nextgen.GraphQL::execute(graphql.ExecutionInput, graphql.language.Document, graphql.schema.GraphQLSchema, graphql.execution.instrumentation.InstrumentationState):java.util.concurrent.CompletableFuture" />
+		</instance>
+		<instance>
+			<role name="State" element="graphql.execution.reactive.SingleSubscriberPublisher$OnSubscriptionCallback" />
+			<role name="Context" element="graphql.execution.reactive.SingleSubscriberPublisher" />
+			<role name="state" element="graphql.execution.reactive.SingleSubscriberPublisher::subscriptionCallback:graphql.execution.reactive.SingleSubscriberPublisher$OnSubscriptionCallback" />
+			<role name="Request()" element="graphql.execution.reactive.SingleSubscriberPublisher::lambda$subscribe$5(org.reactivestreams.Subscriber):void" />
+		</instance>
+		<instance>
+			<role name="State" element="graphql.introspection.IntrospectionWithDirectivesSupport$DirectivePredicate" />
+			<role name="Context" element="graphql.introspection.IntrospectionWithDirectivesSupport" />
+			<role name="state" element="graphql.introspection.IntrospectionWithDirectivesSupport::directivePredicate:graphql.introspection.IntrospectionWithDirectivesSupport$DirectivePredicate" />
+			<role name="Request()" element="graphql.introspection.IntrospectionWithDirectivesSupport::lambda$filterAppliedDirectives$15(graphql.schema.GraphQLSchema, boolean, graphql.schema.GraphQLDirectiveContainer, graphql.schema.GraphQLAppliedDirective):boolean" />
+			<role name="Request()" element="graphql.introspection.IntrospectionWithDirectivesSupport::lambda$filterDirectives$14(graphql.schema.GraphQLSchema, boolean, graphql.schema.GraphQLDirectiveContainer, graphql.schema.GraphQLDirective):boolean" />
+		</instance>
+		<instance>
+			<role name="State" element="graphql.normalized.VariablePredicate" />
+			<role name="Context" element="graphql.normalized.VariableAccumulator" />
+			<role name="state" element="graphql.normalized.VariableAccumulator::variablePredicate:graphql.normalized.VariablePredicate" />
+			<role name="Request()" element="graphql.normalized.VariableAccumulator::shouldMakeVariable(graphql.normalized.ExecutableNormalizedField, java.lang.String, graphql.normalized.NormalizedInputValue):boolean" />
+		</instance>
+		<instance>
+			<role name="State" element="graphql.schema.transform.VisibleFieldPredicate" />
+			<role name="Context" element="graphql.schema.transform.FieldVisibilitySchemaTransformation$FieldRemovalVisitor" />
+			<role name="state" element="graphql.schema.transform.FieldVisibilitySchemaTransformation$FieldRemovalVisitor::visibilityPredicate:graphql.schema.transform.VisibleFieldPredicate" />
+			<role name="Request()" element="graphql.schema.transform.FieldVisibilitySchemaTransformation$FieldRemovalVisitor::visitField(graphql.schema.GraphQLNamedSchemaElement, graphql.util.TraverserContext):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="State" element="graphql.schema.DataFetchingEnvironment" />
+			<role name="Context" element="graphql.execution.DataFetcherExceptionHandlerParameters" />
+			<role name="state" element="graphql.execution.DataFetcherExceptionHandlerParameters::dataFetchingEnvironment:graphql.schema.DataFetchingEnvironment" />
+			<role name="Request()" element="graphql.execution.DataFetcherExceptionHandlerParameters::getPath():graphql.execution.ResultPath" />
+			<role name="Request()" element="graphql.execution.DataFetcherExceptionHandlerParameters::getField():graphql.execution.MergedField" />
+			<role name="Request()" element="graphql.execution.DataFetcherExceptionHandlerParameters::getFieldDefinition():graphql.schema.GraphQLFieldDefinition" />
+			<role name="Request()" element="graphql.execution.DataFetcherExceptionHandlerParameters::getArgumentValues():java.util.Map" />
+		</instance>
+		<instance>
+			<role name="Context" element="graphql.GraphQL" />
+			<role name="State" element="graphql.execution.instrumentation.Instrumentation" />
+			<role name="state" element="graphql.GraphQL::instrumentation:graphql.execution.instrumentation.Instrumentation" />
+			<role name="Request()" element="graphql.GraphQL::executeAsync(graphql.ExecutionInput):java.util.concurrent.CompletableFuture" />
+			<role name="Request()" element="graphql.GraphQL::parse(graphql.ExecutionInput, graphql.schema.GraphQLSchema, graphql.execution.instrumentation.InstrumentationState):graphql.ParseAndValidateResult" />
+			<role name="Request()" element="graphql.GraphQL::validate(graphql.ExecutionInput, graphql.language.Document, graphql.schema.GraphQLSchema, graphql.execution.instrumentation.InstrumentationState):java.util.List" />
+		</instance>
+		<instance>
+			<role name="Context" element="graphql.analysis.MaxQueryComplexityInstrumentation" />
+			<role name="State" element="graphql.analysis.FieldComplexityCalculator" />
+			<role name="state" element="graphql.analysis.MaxQueryComplexityInstrumentation::fieldComplexityCalculator:graphql.analysis.FieldComplexityCalculator" />
+			<role name="Request()" element="graphql.analysis.MaxQueryComplexityInstrumentation::calculateComplexity(graphql.analysis.QueryVisitorFieldEnvironment, int):int" />
+		</instance>
+		<instance>
+			<role name="Context" element="graphql.schema.idl.errors.BaseError" />
+			<role name="State" element="graphql.language.Node" />
+			<role name="state" element="graphql.schema.idl.errors.BaseError::node:graphql.language.Node" />
+			<role name="Request()" element="graphql.schema.idl.errors.BaseError::getLocations():java.util.List" />
+		</instance>
+		<instance>
+			<role name="Context" element="graphql.util.NodeZipper" />
+			<role name="State" element="graphql.util.NodeAdapter" />
+			<role name="state" element="graphql.util.NodeZipper::nodeAdapter:graphql.util.NodeAdapter" />
+			<role name="Request()" element="graphql.util.NodeZipper::toRoot():java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="Context" element="graphql.util.NodeMultiZipper" />
+			<role name="State" element="graphql.util.NodeAdapter" />
+			<role name="state" element="graphql.util.NodeMultiZipper::nodeAdapter:graphql.util.NodeAdapter" />
+			<role name="Request()" element="graphql.util.NodeMultiZipper::moveUp(T, java.util.List):graphql.util.NodeZipper" />
+		</instance>
+		<instance>
+			<role name="Context" element="graphql.util.TreeParallelTransformer" />
+			<role name="State" element="graphql.util.NodeAdapter" />
+			<role name="state" element="graphql.util.TreeParallelTransformer::nodeAdapter:graphql.util.NodeAdapter" />
+			<role name="Request()" element="graphql.util.TreeParallelTransformer::pushAll(graphql.util.TraverserContext):java.util.List" />
+		</instance>
+		<instance>
+			<role name="State" element="graphql.util.TraverserVisitor" />
+			<role name="Context" element="graphql.util.TreeParallelTraverser$EnterAction" />
+			<role name="state" element="graphql.util.TreeParallelTraverser$EnterAction::visitor:graphql.util.TraverserVisitor" />
+			<role name="Request()" element="graphql.util.TreeParallelTraverser$EnterAction::compute():void" />
+		</instance>
+		<instance>
+			<role name="State" element="graphql.util.TraverserVisitor" />
+			<role name="Context" element="graphql.util.TreeParallelTransformer$EnterAction" />
+			<role name="state" element="graphql.util.TreeParallelTransformer$EnterAction::visitor:graphql.util.TraverserVisitor" />
+			<role name="Request()" element="graphql.util.TreeParallelTransformer$EnterAction::compute():void" />
+		</instance>
+		<instance>
+			<role name="State" element="graphql.util.TraverserState" />
+			<role name="Context" element="graphql.util.Traverser" />
+			<role name="state" element="graphql.util.Traverser::traverserState:graphql.util.TraverserState" />
+			<role name="Request()" element="graphql.util.Traverser::traverse(java.util.Collection, graphql.util.TraverserVisitor):graphql.util.TraverserResult" />
+		</instance>
+		<instance>
+			<role name="State" element="graphql.schema.diff.reporting.DifferenceReporter" />
+			<role name="Context" element="graphql.schema.diff.DiffCtx" />
+			<role name="state" element="graphql.schema.diff.DiffCtx::reporter:graphql.schema.diff.reporting.DifferenceReporter" />
+			<role name="Request()" element="graphql.schema.diff.DiffCtx::report(graphql.schema.diff.DiffEvent):void" />
+		</instance>
+		<instance>
+			<role name="Context" element="graphql.analysis.NodeVisitorWithTypeTracking" />
+			<role name="State" element="graphql.analysis.QueryVisitor" />
+			<role name="state" element="graphql.analysis.NodeVisitorWithTypeTracking::postOrderCallback:graphql.analysis.QueryVisitor" />
+			<role name="state" element="graphql.analysis.NodeVisitorWithTypeTracking::preOrderCallback:graphql.analysis.QueryVisitor" />
+			<role name="Request()" element="graphql.analysis.NodeVisitorWithTypeTracking::visitInlineFragment(graphql.language.InlineFragment, graphql.util.TraverserContext):graphql.util.TraversalControl" />
+			<role name="Request()" element="graphql.analysis.NodeVisitorWithTypeTracking::visitFragmentSpread(graphql.language.FragmentSpread, graphql.util.TraverserContext):graphql.util.TraversalControl" />
+			<role name="Request()" element="graphql.analysis.NodeVisitorWithTypeTracking::visitField(graphql.language.Field, graphql.util.TraverserContext):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Context" element="graphql.execution.instrumentation.fieldvalidation.FieldValidationSupport$FieldAndArgumentsImpl" />
+			<role name="State" element="graphql.analysis.QueryVisitorFieldEnvironment" />
+			<role name="state" element="graphql.execution.instrumentation.fieldvalidation.FieldValidationSupport$FieldAndArgumentsImpl::traversalEnv:graphql.analysis.QueryVisitorFieldEnvironment" />
+			<role name="Request()" element="graphql.execution.instrumentation.fieldvalidation.FieldValidationSupport$FieldAndArgumentsImpl::getField():graphql.language.Field" />
+			<role name="Request()" element="graphql.execution.instrumentation.fieldvalidation.FieldValidationSupport$FieldAndArgumentsImpl::getFieldDefinition():graphql.schema.GraphQLFieldDefinition" />
+			<role name="Request()" element="graphql.execution.instrumentation.fieldvalidation.FieldValidationSupport$FieldAndArgumentsImpl::getParentType():graphql.schema.GraphQLCompositeType" />
+			<role name="Request()" element="graphql.execution.instrumentation.fieldvalidation.FieldValidationSupport$FieldAndArgumentsImpl::getArgumentValuesByName():java.util.Map" />
+			<role name="Request()" element="graphql.execution.instrumentation.fieldvalidation.FieldValidationSupport$FieldAndArgumentsImpl::getArgumentValue():java.lang.Object" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy" />
+	<pattern name="Bridge">
+		<instance>
+			<role name="Abstraction" element="graphql.execution.preparsed.persisted.PersistedQuerySupport" />
+			<role name="Implementor" element="graphql.execution.preparsed.persisted.PersistedQueryCache" />
+			<role name="implementor" element="graphql.execution.preparsed.persisted.PersistedQuerySupport::persistedQueryCache:graphql.execution.preparsed.persisted.PersistedQueryCache" />
+			<role name="Operation()" element="graphql.execution.preparsed.persisted.PersistedQuerySupport::getDocument(graphql.ExecutionInput, java.util.function.Function):graphql.execution.preparsed.PreparsedDocumentEntry" />
+		</instance>
+	</pattern>
+	<pattern name="Template Method">
+		<instance>
+			<role name="AbstractClass" element="graphql.execution.ExecutionStrategy" />
+			<role name="TemplateMethod()" element="graphql.execution.ExecutionStrategy::completeValueForObject(graphql.execution.ExecutionContext, graphql.execution.ExecutionStrategyParameters, graphql.schema.GraphQLObjectType, java.lang.Object):java.util.concurrent.CompletableFuture" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="graphql.execution.preparsed.persisted.PersistedQuerySupport" />
+			<role name="TemplateMethod()" element="graphql.execution.preparsed.persisted.PersistedQuerySupport::getDocument(graphql.ExecutionInput, java.util.function.Function):graphql.execution.preparsed.PreparsedDocumentEntry" />
+		</instance>
+	</pattern>
+	<pattern name="Visitor">
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.Argument" />
+			<role name="Accept()" element="graphql.language.Argument::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.ArrayValue" />
+			<role name="Accept()" element="graphql.language.ArrayValue::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.BooleanValue" />
+			<role name="Accept()" element="graphql.language.BooleanValue::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.Directive" />
+			<role name="Accept()" element="graphql.language.Directive::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.DirectiveDefinition" />
+			<role name="Accept()" element="graphql.language.DirectiveDefinition::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.DirectiveLocation" />
+			<role name="Accept()" element="graphql.language.DirectiveLocation::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.Document" />
+			<role name="Accept()" element="graphql.language.Document::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.EnumTypeDefinition" />
+			<role name="Accept()" element="graphql.language.EnumTypeDefinition::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.EnumValue" />
+			<role name="Accept()" element="graphql.language.EnumValue::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.EnumValueDefinition" />
+			<role name="Accept()" element="graphql.language.EnumValueDefinition::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.Field" />
+			<role name="Accept()" element="graphql.language.Field::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.FieldDefinition" />
+			<role name="Accept()" element="graphql.language.FieldDefinition::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.FloatValue" />
+			<role name="Accept()" element="graphql.language.FloatValue::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.FragmentDefinition" />
+			<role name="Accept()" element="graphql.language.FragmentDefinition::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.FragmentSpread" />
+			<role name="Accept()" element="graphql.language.FragmentSpread::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.InlineFragment" />
+			<role name="Accept()" element="graphql.language.InlineFragment::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.InputObjectTypeDefinition" />
+			<role name="Accept()" element="graphql.language.InputObjectTypeDefinition::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.InputValueDefinition" />
+			<role name="Accept()" element="graphql.language.InputValueDefinition::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.IntValue" />
+			<role name="Accept()" element="graphql.language.IntValue::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.InterfaceTypeDefinition" />
+			<role name="Accept()" element="graphql.language.InterfaceTypeDefinition::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.ListType" />
+			<role name="Accept()" element="graphql.language.ListType::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.NonNullType" />
+			<role name="Accept()" element="graphql.language.NonNullType::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.NullValue" />
+			<role name="Accept()" element="graphql.language.NullValue::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.ObjectField" />
+			<role name="Accept()" element="graphql.language.ObjectField::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.ObjectTypeDefinition" />
+			<role name="Accept()" element="graphql.language.ObjectTypeDefinition::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.ObjectValue" />
+			<role name="Accept()" element="graphql.language.ObjectValue::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.OperationDefinition" />
+			<role name="Accept()" element="graphql.language.OperationDefinition::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.OperationTypeDefinition" />
+			<role name="Accept()" element="graphql.language.OperationTypeDefinition::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.ScalarTypeDefinition" />
+			<role name="Accept()" element="graphql.language.ScalarTypeDefinition::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.SchemaDefinition" />
+			<role name="Accept()" element="graphql.language.SchemaDefinition::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.SelectionSet" />
+			<role name="Accept()" element="graphql.language.SelectionSet::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.StringValue" />
+			<role name="Accept()" element="graphql.language.StringValue::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.TypeName" />
+			<role name="Accept()" element="graphql.language.TypeName::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.UnionTypeDefinition" />
+			<role name="Accept()" element="graphql.language.UnionTypeDefinition::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.VariableDefinition" />
+			<role name="Accept()" element="graphql.language.VariableDefinition::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.language.NodeVisitor" />
+			<role name="ConcreteElement" element="graphql.language.VariableReference" />
+			<role name="Accept()" element="graphql.language.VariableReference::accept(graphql.util.TraverserContext, graphql.language.NodeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.schema.GraphQLTypeVisitor" />
+			<role name="ConcreteElement" element="graphql.schema.GraphQLArgument" />
+			<role name="Accept()" element="graphql.schema.GraphQLArgument::accept(graphql.util.TraverserContext, graphql.schema.GraphQLTypeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.schema.GraphQLTypeVisitor" />
+			<role name="ConcreteElement" element="graphql.schema.GraphQLDirective" />
+			<role name="Accept()" element="graphql.schema.GraphQLDirective::accept(graphql.util.TraverserContext, graphql.schema.GraphQLTypeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.schema.GraphQLTypeVisitor" />
+			<role name="ConcreteElement" element="graphql.schema.GraphQLEnumType" />
+			<role name="Accept()" element="graphql.schema.GraphQLEnumType::accept(graphql.util.TraverserContext, graphql.schema.GraphQLTypeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.schema.GraphQLTypeVisitor" />
+			<role name="ConcreteElement" element="graphql.schema.GraphQLEnumValueDefinition" />
+			<role name="Accept()" element="graphql.schema.GraphQLEnumValueDefinition::accept(graphql.util.TraverserContext, graphql.schema.GraphQLTypeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.schema.GraphQLTypeVisitor" />
+			<role name="ConcreteElement" element="graphql.schema.GraphQLFieldDefinition" />
+			<role name="Accept()" element="graphql.schema.GraphQLFieldDefinition::accept(graphql.util.TraverserContext, graphql.schema.GraphQLTypeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.schema.GraphQLTypeVisitor" />
+			<role name="ConcreteElement" element="graphql.schema.GraphQLInputObjectField" />
+			<role name="Accept()" element="graphql.schema.GraphQLInputObjectField::accept(graphql.util.TraverserContext, graphql.schema.GraphQLTypeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.schema.GraphQLTypeVisitor" />
+			<role name="ConcreteElement" element="graphql.schema.GraphQLInputObjectType" />
+			<role name="Accept()" element="graphql.schema.GraphQLInputObjectType::accept(graphql.util.TraverserContext, graphql.schema.GraphQLTypeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.schema.GraphQLTypeVisitor" />
+			<role name="ConcreteElement" element="graphql.schema.GraphQLInterfaceType" />
+			<role name="Accept()" element="graphql.schema.GraphQLInterfaceType::accept(graphql.util.TraverserContext, graphql.schema.GraphQLTypeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.schema.GraphQLTypeVisitor" />
+			<role name="ConcreteElement" element="graphql.schema.GraphQLObjectType" />
+			<role name="Accept()" element="graphql.schema.GraphQLObjectType::accept(graphql.util.TraverserContext, graphql.schema.GraphQLTypeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.schema.GraphQLTypeVisitor" />
+			<role name="ConcreteElement" element="graphql.schema.GraphQLScalarType" />
+			<role name="Accept()" element="graphql.schema.GraphQLScalarType::accept(graphql.util.TraverserContext, graphql.schema.GraphQLTypeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="Visitor" element="graphql.schema.GraphQLTypeVisitor" />
+			<role name="ConcreteElement" element="graphql.schema.GraphQLUnionType" />
+			<role name="Accept()" element="graphql.schema.GraphQLUnionType::accept(graphql.util.TraverserContext, graphql.schema.GraphQLTypeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="ConcreteElement" element="graphql.schema.GraphQLTypeReference" />
+			<role name="Visitor" element="graphql.schema.GraphQLTypeVisitor" />
+			<role name="Accept()" element="graphql.schema.GraphQLTypeReference::accept(graphql.util.TraverserContext, graphql.schema.GraphQLTypeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="ConcreteElement" element="graphql.schema.GraphQLList" />
+			<role name="Visitor" element="graphql.schema.GraphQLTypeVisitor" />
+			<role name="Accept()" element="graphql.schema.GraphQLList::accept(graphql.util.TraverserContext, graphql.schema.GraphQLTypeVisitor):graphql.util.TraversalControl" />
+		</instance>
+		<instance>
+			<role name="ConcreteElement" element="graphql.schema.GraphQLNonNull" />
+			<role name="Visitor" element="graphql.schema.GraphQLTypeVisitor" />
+			<role name="Accept()" element="graphql.schema.GraphQLNonNull::accept(graphql.util.TraverserContext, graphql.schema.GraphQLTypeVisitor):graphql.util.TraversalControl" />
+		</instance>
+	</pattern>
+	<pattern name="Proxy">
+		<instance>
+			<role name="Proxy" element="graphql.schema.visibility.NoIntrospectionGraphqlFieldVisibility" />
+			<role name="RealSubject" element="graphql.schema.visibility.BlockedFields" />
+			<role name="Request()" element="graphql.schema.visibility.NoIntrospectionGraphqlFieldVisibility::getFieldDefinitions(graphql.schema.GraphQLFieldsContainer):java.util.List" />
+			<role name="Request()" element="graphql.schema.visibility.NoIntrospectionGraphqlFieldVisibility::getFieldDefinition(graphql.schema.GraphQLFieldsContainer, java.lang.String):graphql.schema.GraphQLFieldDefinition" />
+		</instance>
+	</pattern>
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility" />
+</system>
+
